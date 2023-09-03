@@ -82,6 +82,13 @@ footer {
 
   .bot{
     position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #fff; /* Change the text color as needed */
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000; /* Ensure the footer is above other elements */
     display: flex !important;
     flex-direction: column;
   }
