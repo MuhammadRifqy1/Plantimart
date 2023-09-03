@@ -1,0 +1,51 @@
+@media (max-width: 1200px) {
+
+  .about-card {
+    height: 400px;
+  }
+
+}
+
+@media (max-width: 992px) {
+
+  .about-card {
+    height: 360px;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .card h2{
+    font-size: 1.4rem;
+  }
+
+  .card h3{
+    font-size: 1.25rem;
+  }
+
+  .about-card {
+    height: 250px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .card h2{
+    font-size: 1rem;
+  }
+
+  .card h3{
+    font-size: 0.8rem;
+  }
+
+  .about-card {
+    height: 200px;
+  }
+
+  .card-body{
+    padding: 0;
+  }
+
+}

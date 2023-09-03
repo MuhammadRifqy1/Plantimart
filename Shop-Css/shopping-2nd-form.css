@@ -1,0 +1,39 @@
+.form-phase{
+  height: 400px;
+}
+
+@media (max-width: 991px) {
+
+  .payment-method-container{
+    flex-direction: column;
+  }
+
+  .form-phase{
+    height: 250px;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  #profile-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  #cart-items-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-input-container{
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .form-desc{
+    font-size: 1rem;
+  }
+
+}

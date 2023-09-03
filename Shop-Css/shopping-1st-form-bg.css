@@ -1,0 +1,88 @@
+
+* {
+
+}
+
+html {
+    font-family: Lato;
+    background: #DFDFDF;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.page-path{
+  background: var(--bs-gray-300);
+  color: var(--bs-gray-600);
+}
+
+#pageButton{
+  color: var(--bs-gray-600);
+  font-style: italic;
+}
+
+.first-phase{
+  background: var(--bs-gray-300);
+  color: var(--bs-success);
+  font-style: italic;
+}
+
+.form-part{
+  background: var(--bs-gray-300);
+}
+
+#profile-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.col-md {
+    margin: 5px;
+}
+
+.first-phase{
+    background: var(--bs-gray-300);
+    font-style: italic;
+}
+
+#form-container {
+    padding: 1.5rem 3rem 1rem 3rem;
+    font-size: 14px;
+}
+
+.cart-item-checkout , .submit-button-container{
+    background: var(--bs-gray-200);
+}
+
+.cart-items-box{
+    background: var(--bs-gray-400);
+}
+
+#payment-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#card-number-container{
+    margin: 5px;
+}
+
+#expiration-date-container{
+    margin: 5px;
+}
+
+#cvv-container{
+    margin: 5px;
+}
+
+#paypal-username-container{
+    margin: 5px;
+}
+
+#paypal-password-container{
+    margin: 5px;
+}

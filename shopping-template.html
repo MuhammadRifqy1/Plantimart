@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./Bootstrap/bootstrap-5.3.1-dist/css/bootstrap.css" >
+  <link rel="stylesheet" href="./Shop-Css/shopping-1st-form.css">
+  <link rel="stylesheet" href="./Shop-Css/shopping-1st-form-bg.css">
+  <link rel="stylesheet" href="./Shop-Css/nav.css">
+  <link rel="stylesheet" href="./Shop-Css/bottom-part.css">
+  <link rel="stylesheet" href="./Font Awesome/fontawesome-free-6.4.2-web/css/all.css">
+  <link rel="stylesheet" href="./Bootstrap/Swiper/package/swiper-bundle.css">
+  <script src="./Bootstrap/Swiper/package/swiper-bundle.min.js"></script>
+  <script src="./Bootstrap/bootstrap-5.3.1-dist/js/bootstrap.bundle.js"></script>
+  <script src="./Bootstrap/Swiper/package/swiper-bundle.min.js"></script>
+  <script src="./Bootstrap/Swiper/swiper.js"></script>
+  <script src="./Font Awesome/fontawesome-free-6.4.2-web/js/all.js"></script>
+  <script src="./JS/shopping-checkout.js"></script>
+
+</head>
+<body>
+  <nav id="navbar" class="top navbar bg-body-tertiary px-3">
+    <ul class="nav nav-pills left-nav">
+      <img class="logo" src="./Shop-Css/logo.png" alt="Logo">
+        <div class = "nav-button-container">
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-home.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="./shopping-home.html" role="button">Shop</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./shopping-shop.html">Best Deal</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./shopping-shop.html">Green Veggies</a></li>
+              <li><a class="dropdown-item" href="./shopping-shop.html">Various Fruit</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav nav-pills right-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="./shopping-contact.html"><h4 class="fa-solid fa-circle-user"></h4>Account</a>
+        </li>
+    </ul>
+  </nav>
+
+  <div data-bs-spy="scroll" data-bs-target="#navbar" class="scrollspy-container rounded-2" tabindex="0">
+
+      <div id ="bottom-bg" class="bottom-bg">
+        <div id ="bottom-container" class="bottom-container">
+
+            <div class="bottom-text address">
+              <img class="logo" src="./Shop-Css/logo.png" alt="Logo">
+              <h6 id = "bottom-ads">Discover veggies at our organic market - Go green with our organic market's wide selection of farm delights!</h6>
+                <h4 id = "bottom-title">Address</h4>
+                <h6 id = "bottom-list"><i class="fa-solid fa-map"></i> 075 Elouise Green , Texas , USA</h6>
+                <h6 id = "bottom-list"><i class="fa-solid fa-envelope"></i> example@domain.com</h6>
+                <h6 id = "bottom-list"><i class="fa-solid fa-phone"></i> +01 2345 67890</h6>
+            </div>
+
+            <div class="bottom-text">
+                <h4 id = "bottom-title">About Us</h4>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">About Us</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Contact Information</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Testimonials</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Support/Help Center</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Related Websites</button></h6>
+            </div>
+
+            <div class="bottom-text">
+                <h4 id = "bottom-title">Misc</h4>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">FAQ</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Terms of Service</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Privacy Policy</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Partners and Affiliates</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Copyright Information</button></h6>
+            </div>
+
+            <div class="bottom-text newsettler">
+              <h4 id = "bottom-title">Newsettler</h4>
+              <h6 id = "bottom-list">Do You Want To Get Informed About Great Offering From Plantimart ? Put Your Email Here To Get News About It</h6>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Email Here" aria-label="Email Here" >
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-paper-plane"></i></button>
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="bot">
+      <nav id="navbar" class="navbar bg-body-tertiary px-3">
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-home.html"><i class="fa-solid fa-house"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-shop.html"><i class="fa-solid fa-shop"></i></a>
+          </li>
+          <li class="nav-item">
+            <button class= "btn btn-outline-dark" id="cart-button-bottom">
+                  <i class="fa-solid fa-basket-shopping"></i>
+                  <span id="cart-count-bottom">0</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-about"><i class="fa-solid fa-info"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=".#about-bg"><i class="fa-solid fa-circle-user"></i></a>
+          </li>
+      </nav>
+    </footer>
+
+
+</body>
+</html>

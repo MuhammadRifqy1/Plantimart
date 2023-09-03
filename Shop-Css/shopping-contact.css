@@ -1,0 +1,32 @@
+@media (max-width: 1200px) and (min-width: 992px) {
+
+  .media {
+    column-gap: 60px !important;
+  }
+
+}
+
+@media (max-width: 991px)  and (min-width : 768px){
+
+  .media {
+    grid-template-columns: 1.5fr 1fr !important;
+    column-gap: 35px !important;
+  }
+
+}
+
+@media (max-width: 767px){
+
+  .media{
+    grid-template-columns: 1fr !important;
+  }
+
+}
+
+@media (max-width: 575px) {
+
+  .contact h3{
+    font-size: 1.1rem !important;
+  }
+
+}

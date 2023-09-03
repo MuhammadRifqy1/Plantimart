@@ -1,0 +1,49 @@
+
+* {
+    font-family: Ubuntu;
+}
+
+html {
+    background-color: #DFDFDF;
+}
+
+/* Slider Part */
+
+.swiper {
+    background: var(--bs-gray-200);
+    align-self: center;
+    display: flex !important;
+}
+
+.swiper-slide{
+    display: flex !important;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.slide-text{
+    color: #837171;
+    font-weight: bold;
+    width: 500px;
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* Best Seller */
+
+.best-seller {
+  text-align: center;
+  margin-top: 50px;
+}
+
+i.fa-solid {
+    padding-right: 10px;
+}
+
+h1.top-seller {
+  margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}

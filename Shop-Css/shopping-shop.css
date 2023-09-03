@@ -1,0 +1,167 @@
+
+/* Filter Part */
+.grid-control input[type="radio"] {
+  display: none;
+}
+
+.radio-icon {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.radio-icon h4 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.grid-control input[type="radio"]:checked + h4 {
+  color: blue; /* Change the color of the icon when the radio button is selected */
+  transform: scale(1.2);
+}
+
+.filter {
+    border: 0 !important;
+}
+
+.filter-modal{
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.filter-modal-content {
+  background-color: var(--bs-gray-400);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90% !important;
+}
+
+.close2 {
+  color: #aaa;
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close2:hover,
+.close2:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.offers-filter-container,
+.categories-filter-container{
+  background: var(--bs-border-color);
+}
+
+.fruit-filter,
+.veggies-filter,
+.herbs-filter,
+.drink-filter,
+.spice-filter,
+.grain-filter{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.filter-icon{
+  width: 3rem;
+}
+
+@media (max-width: 991px) {
+
+  .left-side-container{
+      display: none !important;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .fruit-filter,
+  .veggies-filter,
+  .herbs-filter,
+  .drink-filter,
+  .spice-filter,
+  .grain-filter{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .display-select{
+      display: none !important;
+  }
+
+  .product .card-body {
+      padding-left: 10px;
+  }
+
+  .product-side {
+    margin: 0;
+  }
+
+}
+
+@media (max-width: 390px) {
+
+  h5{
+    font-size: 1.015rem;
+  }
+
+  h6{
+    font-size: 0.875rem;
+  }
+
+  h5.card-badge {
+    height: 20px !important;
+  }
+
+  p{
+    font-size: 0.85rem;
+  }
+
+  .filter h4{
+    font-size: 17px !important;
+  }
+
+  .filter {
+    display: flex !important;
+    font-size: 17px !important;
+    padding-left: 2px;
+  }
+
+  .card-img-top {
+    height: 170px !important;
+  }
+
+  .card-footer {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .counter-plus , .counter-minus{
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+  .bottom-card-button{
+    font-size: 13px;
+  }
+
+}

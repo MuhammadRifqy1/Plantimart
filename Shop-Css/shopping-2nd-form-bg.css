@@ -1,0 +1,42 @@
+.payment-method-container{
+  min-height: 800px;
+  background: var(--bs-gray-300);
+}
+
+.page-path{
+  background: var(--bs-gray-300);
+  color: var(--bs-gray-600);
+}
+
+#pageButton{
+  color: var(--bs-gray-600);
+  font-style: italic;
+}
+
+.first-phase{
+  color: var(--bs-gray-500);
+  background: var(--bs-gray-400);
+  font-style: italic;
+}
+
+.fa-check{
+  color: var(--bs-success);
+}
+
+.fa-paypal{
+  color: var(--bs-link-color);
+}
+
+.fa-money-bill-transfer{
+  color: var(--bs-green);
+}
+
+.second-phase{
+  background: var(--bs-gray-300);
+  color: var(--bs-success);
+  font-style: italic;
+}
+
+.payment-side h2 {
+  text-align: center;
+}

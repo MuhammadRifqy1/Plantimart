@@ -1,0 +1,39 @@
+.confirmation-container{
+  min-height: 800px;
+  background: var(--bs-gray-300);
+}
+
+.page-path{
+  background: var(--bs-gray-300);
+  color: var(--bs-gray-600);
+}
+
+#pageButton{
+  color: var(--bs-gray-600);
+  font-style: italic;
+}
+
+.first-phase , .second-phase{
+  color: var(--bs-gray-500);
+  background: var(--bs-gray-400);
+  font-style: italic;
+}
+
+.fa-check{
+  color: var(--bs-success);
+}
+
+.third-phase{
+  background: var(--bs-gray-300);
+  color: var(--bs-success);
+  font-style: italic;
+}
+
+.confirm-side h2 {
+  text-align: center;
+  font-style: italic;  
+}
+
+.form-data{
+  grid-template-columns: 1fr 1fr
+}

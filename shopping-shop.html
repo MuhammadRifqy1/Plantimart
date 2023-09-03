@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./Bootstrap/bootstrap-5.3.1-dist/css/bootstrap.css" >
+  <link rel="stylesheet" href="./Shop-Css/shopping-shop.css">
+  <link rel="stylesheet" href="./Shop-Css/shopping-shop-bg.css">
+  <link rel="stylesheet" href="./Shop-Css/nav.css">
+  <link rel="stylesheet" href="./Shop-Css/bottom-part.css">
+  <link rel="stylesheet" href="./Shop-Css/cart-modal.css">
+  <link rel="stylesheet" href="./Font Awesome/fontawesome-free-6.4.2-web/css/all.css">
+  <link rel="stylesheet" href="./Bootstrap/Swiper/package/swiper-bundle.css">
+  <script src="./Bootstrap/Swiper/package/swiper-bundle.min.js"></script>
+  <script src="./Bootstrap/bootstrap-5.3.1-dist/js/bootstrap.bundle.js"></script>
+  <script src="./Bootstrap/Swiper/package/swiper-bundle.min.js"></script>
+  <script src="./Bootstrap/Swiper/swiper.js"></script>
+  <script src="./Font Awesome/fontawesome-free-6.4.2-web/js/all.js"></script>
+  <script src="./JS/cart-addon.js"></script>
+  <script src="./JS/shopping-shop.js"></script>
+
+</head>
+<body>
+
+  <nav id="navbar" class="top navbar bg-body-tertiary px-3">
+    <ul class="nav nav-pills left-nav">
+      <img class="logo" src="./Shop-Css/logo.png" alt="Logo">
+      <div class = "nav-button-container">
+        <li class="nav-item">
+          <a class="nav-link" href="./shopping-home.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="./shopping-home.html" role="button">Shop</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./shopping-shop.html">Best Deal</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./shopping-shop.html">Green Veggies</a></li>
+            <li><a class="dropdown-item" href="./shopping-shop.html">Various Fruit</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./shopping-about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./shopping-contact.html">Contact</a>
+        </li>
+      </ul>
+  </div>
+      <ul class="nav nav-pills right-nav">
+        <li class="nav-item">
+          <button class= "btn btn-outline-dark" id="cart-button">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span id="cart-count">0</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./shopping-contact.html"><h4 class="fa-solid fa-circle-user"></h4>Account</a>
+        </li>
+    </ul>
+  </nav>
+
+
+    <div id="cart-modal" class="cart-modal">
+      <div class="cart-modal-content">
+        <div class="close-container">
+          <span id="cart-close" class="close"><i class="fa-regular fa-rectangle-xmark"></i></span>
+        </div>
+        <h1 class="py-3 cart-modal-title">Cart Item</h1>
+        <div id="whole-cart" class="whole-cart border border-5 border-black">
+          <div class="empty-cart" id="empty-cart"></div>
+          <div class="pb-4" id="cart-items-container"></div>
+          <div class="modal-footer">
+            <h2 id="cart-total" class="py-3 cart-total">Total: $0.00</h2>
+            <div id="checkout-button-container"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="filter-modal" class="filter-modal">
+    <div class="filter-modal-content">
+      <div class="close-container2">
+        <span id="cart-close2" class="close2"><i class="fa-regular fa-rectangle-xmark"></i></span>
+      </div>
+      <h1 class="py-3 filter-modal-title text-center">Filter The Item</h1>
+        <div class="filter-item">
+
+          <div class="offers-filter-container mb-4 shadow-lg">
+            <h2 class="ps-3 pt-4">Offers</h2>
+
+            <div class="offer-filter">
+
+              <div class="checkbox-container px-3">
+                <div class="form-check form-check-reverse category-input">
+                  <h4 class="form-check-text"><i class="fa-solid fa-tags"></i> Discount</h4>
+                  <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="discount">
+                </div>
+              </div>
+
+              <div class="checkbox-container px-3">
+                <div class="form-check form-check-reverse category-input">
+                  <h4 class="form-check-text"><i class="fa-solid fa-thumbs-up"></i> Best Seller</h4>
+                  <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="best">
+                </div>
+              </div>
+
+              <div class="checkbox-container px-3">
+                <div class="form-check form-check-reverse category-input">
+                  <h4 class="form-check-text"><i class="fa-solid fa-heart"></i> Recommended</h4>
+                  <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="recommend">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="categories-filter-container shadow-lg">
+
+          <h2 class="ps-3 pt-4">Categories</h2>
+
+            <div class="fruit-filter-container px-3 pb-3">
+
+              <h3 class="text-center"><i><svg class="filter-icon ps-2 pb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 21.333c-64 0-85.333 42.667-85.333 85.334H256q0-64 64-64z" style="fill:#7d1a00"/><path d="M341.333 64c-64 0-64 21.333-85.333 21.333S234.667 64 170.667 64 21.333 106.667 21.333 213.333s64 102.4 64 172.8S128 490.667 170.667 490.667c64 0 64-21.334 85.333-21.334s21.333 21.334 85.333 21.334c42.667 0 85.334-34.134 85.334-104.534 0-66.133 64-66.133 64-172.8S405.333 64 341.333 64z" style="fill:#c82e25"/><path d="M170.667 490.667c-41.104 0-85.334-32.709-85.334-104.532 0-31.562-13.135-48.468-27.041-66.375l33.698-26.177c15.198 19.573 36.01 46.365 36.01 92.552C128 431.802 150.98 448 170.667 448c29.146 0 37.552-4.854 44.968-9.135 7.875-4.553 21.084-12.198 40.365-12.198s32.49 7.646 40.385 12.218l-21.375 36.917c-6-3.469-11.187-6.469-19.01-6.469s-13.01 3-19.01 6.47c-13.584 7.843-28.855 14.864-66.323 14.864z" style="fill:#af0a00"/><path d="M341.333 490.667c-37.458 0-52.729-7.021-66.28-14.844l42.645-73.906c2.854 1.646 5.573 3.208 20.531 3.396 1.156-2.375 3.104-8.032 3.104-19.178 0-57.937 26.344-92.51 43.782-115.385 14.302-18.781 20.218-26.552 20.218-57.417 0-60.916-53.312-64-64-64V64c60.032 0 149.334 39.77 149.334 149.333 0 59.657-20.01 85.927-37.657 109.104C438.865 341 426.667 357 426.667 386.135c0 71.823-44.23 104.532-85.334 104.532z" style="fill:#af0a00"/><ellipse cx="149.333" cy="170.667" rx="74.281" ry="51.7" transform="rotate(-45 149.333 170.667)" style="fill:#d2514a"/><ellipse cx="117.333" cy="160" rx="39.18" ry="22.634" transform="rotate(-45 117.333 160)" style="fill:#de807a"/>
+              </svg></i>
+              Fruit</h3>
+
+                <div class="fruit-filter border border-black">
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Fruit</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="fruit">
+                  </div>
+                </div>
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Berries</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="berry">
+                  </div>
+                </div>
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Citrus</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="citrus">
+                  </div>
+                </div>
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Melon</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="melon">
+                  </div>
+                </div>
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Tropical</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="tropical">
+                  </div>
+                </div>
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Apple & Pear</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="apple-pear">
+                  </div>
+                </div>
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Others</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="other-fruit">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="veggies-filter-container px-3 pb-3">
+
+              <h3 class="text-center"><i><svg class="filter-icon ps-2 pb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M277.333 21.333h-42.666c0 106.667-213.334 128-213.334 277.334 0 170.666 192 170.666 192 170.666s0 21.334 42.667 21.334 42.667-21.334 42.667-21.334 192 0 192-170.666c0-149.334-213.334-170.667-213.334-277.334z" style="fill:#e0d4b7"/><path d="M213.313 469.333c-7.834-.01-191.98-2.208-191.98-170.666 0-80.948 63.792-125.052 120.063-163.97 45.042-31.155 87.542-60.551 92.729-103.957l21.167 2.52c-6.313 52.959-52.646 85.01-101.709 118.948-57.062 39.459-110.916 76.698-110.916 146.459 0 147.396 163.708 149.323 170.687 149.333z" style="fill:#d4c3a2"/><path d="M277.333 21.333H256v448h42.667s192 0 192-170.666c0-149.334-213.334-170.667-213.334-277.334z" style="fill:#c5af83"/><path d="m344.583 456.167-13.791-16.292C364.604 411.271 384 367.583 384 320c0-50.896-28.938-91.802-59.604-135.115C290.729 137.313 256 88.22 256 21.333h21.333c0 60.104 32.75 106.375 64.417 151.136 32.73 46.26 63.583 89.854 63.583 147.531 0 53.865-22.146 103.5-60.75 136.167z" style="fill:#b99e69"/><path d="m298.73 469.333-.21-42.666c15.313-.073 149.48-4.24 149.48-128 0-58.563-49.375-92.72-101.646-128.875-31.562-21.813-64.208-44.375-86.166-74.104l34.291-25.355c17.771 24.021 47.438 44.521 76.125 64.355 56.292 38.927 120.063 83.052 120.063 163.979 0 167.875-184.104 170.635-191.938 170.666z" style="fill:#b99e69"/><path d="M179.02 465.083c-45.312-31.646-72.353-85.875-72.353-145.083 0-57.677 30.854-101.27 63.52-147.438 31.73-44.854 64.48-91.125 64.48-151.229H256c0 66.886-34.73 115.98-68.333 163.459C156.937 228.198 128 269.104 128 320c0 52.24 23.646 99.938 63.23 127.604z" style="fill:#d4c3a2"/><path d="M256 469.333c64 0 128-64 128-149.333 0-106.667-128-170.667-128-298.667 0 128-128 192-128 298.667 0 85.333 64 149.333 128 149.333z" style="fill:#eae2ce"/><path d="M298.667 319.999c0 85.333-10.667 149.333-42.667 149.333h.02C320.015 469.319 384 405.324 384 320c0-106.667-128-170.665-128-298.665 0 127.996 42.667 191.998 42.667 298.664z" style="fill:#d4c3a2"/><path d="m335.833 403.292-17.125-12.75c10.334-13.854 22.625-37.334 22.625-70.542 0-22.27-8.062-44.469-26.958-74.24C311.687 241.01 256 140.927 256 96h21.333c0 32.719 39.959 111.313 55.354 138.833 14.667 23.084 29.98 51.709 29.98 85.167 0 30.906-9.292 59.708-26.834 83.292z" style="fill:#c5af83"/><path d="M237.792 466.208C235.917 464.344 192 419.396 192 330.667c0-47.344 12.813-88.73 24.104-125.25 9.542-30.854 18.563-59.99 18.563-88.084H256c0 31.313-9.48 61.959-19.52 94.396-11.376 36.781-23.147 74.823-23.147 118.938 0 79.396 39.167 120.083 39.563 120.49z" style="fill:#f3eee3"/><path d="M109.792 423.542C107.917 421.677 64 376.969 64 309.333c0-47.812 21.625-73.448 49-105.916 11.75-13.948 25.063-29.75 38.125-49.334l17.75 11.834c-13.73 20.583-27.458 36.875-39.583 51.25-25.521 30.27-43.959 52.146-43.959 92.166 0 58.896 39.146 98.73 39.542 99.125z" style="fill:#eae2ce"/>
+              </svg></i>
+              Veggies</h3>
+
+              <div class="veggies-filter border border-black">
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Veggies</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="veggies">
+                  </div>
+                </div>
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Cruciferous Veggies</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="cruciferous">
+                  </div>
+                </div>
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Root Veggies</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="root">
+                  </div>
+                </div>
+
+                <div class="checkbox-container px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Others</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="other-veggies">
+                  </div>
+                </div>
+
+            </div>
+           </div>
+
+           <div class="herbs-filter-container px-3 pb-3">
+
+             <h3 class="text-center"><i><svg class="filter-icon ps-2 pb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198.41 186.36"><defs><style>.cls-1,.cls-5{stroke-miterlimit:10;stroke-width:6px}.cls-1{fill:#f2a7c5;stroke:#1f2687}.cls-5{stroke:#212683}.cls-4{fill:#212683}.cls-5{fill:none}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="m137.16 66.17 18.13-20.99-20.44-17.66-32.91 38.1.64.55"/><rect class="cls-1" x="121.3" y="18.55" width="60.78" height="20.26" rx="10.13" ry="10.13" transform="rotate(40.82 151.705 28.684)"/><path d="M36.59 112.5a44 44 0 0 0 43.89 41h53.33a44 44 0 0 0 44-44V75.83a9.65 9.65 0 0 0-9.66-9.66h-122a9.66 9.66 0 0 0-9.67 9.66V81" style="stroke:#212683;fill:#9faed0;stroke-miterlimit:10;stroke-width:6px"/><path d="M63.15 153.5h88v9.83a4.83 4.83 0 0 1-4.83 4.83H68a4.83 4.83 0 0 1-4.83-4.83v-9.83h-.02z" style="fill:#a8dedb;stroke-miterlimit:10;stroke-width:6px;stroke:#1f2687"/><path class="cls-4" d="M37.14 7.85h-4a1.73 1.73 0 0 1-1.74-1.73v-4A2.07 2.07 0 0 0 29.72 0a2 2 0 0 0-2.25 2v4.12a1.73 1.73 0 0 1-1.73 1.73h-4a2.07 2.07 0 0 0-2.09 1.68 2 2 0 0 0 1.94 2.25h4.15a1.73 1.73 0 0 1 1.73 1.73v4a2.07 2.07 0 0 0 1.68 2.09 2 2 0 0 0 2.25-1.94v-4.15a1.73 1.73 0 0 1 1.73-1.73h4.15a2 2 0 0 0 1.94-2.25 2.07 2.07 0 0 0-2.08-1.68zM17.51 174.58h-4a1.73 1.73 0 0 1-1.73-1.73v-4a2.07 2.07 0 0 0-1.68-2.09 2 2 0 0 0-2.25 1.94v4.15a1.73 1.73 0 0 1-1.73 1.73h-4A2.07 2.07 0 0 0 0 176.26a2 2 0 0 0 2 2.25h4.12a1.73 1.73 0 0 1 1.73 1.73v4a2.07 2.07 0 0 0 1.68 2.09 2 2 0 0 0 2.25-1.94v-4.15a1.73 1.73 0 0 1 1.73-1.73h4.15a2 2 0 0 0 1.94-2.25 2.07 2.07 0 0 0-2.09-1.68zM197.14 175.37h-2.4a1 1 0 0 1-1-1v-2.4a1.24 1.24 0 0 0-1-1.26 1.18 1.18 0 0 0-1.35 1.17v2.49a1 1 0 0 1-1 1h-2.4a1.24 1.24 0 0 0-1.26 1 1.18 1.18 0 0 0 1.17 1.35h2.49a1 1 0 0 1 1 1v2.4a1.24 1.24 0 0 0 1 1.26 1.18 1.18 0 0 0 1.35-1.17v-2.49a1 1 0 0 1 1-1h2.49a1.18 1.18 0 0 0 1.17-1.35 1.24 1.24 0 0 0-1.26-1z"/><circle class="cls-4" cx="36.07" cy="97.33" r="3.18"/><path class="cls-5" d="M177.81 86.17H98.48M94.15 86.17H81.48M177.81 109.5h-49.19"/></g></g>
+             </svg></i>
+             Herbs</h3>
+
+             <div class="herbs-filter border border-black">
+
+               <div class="checkbox-container  px-3">
+                 <div class="form-check form-check-reverse category-input">
+                   <h5 class="form-check-text">Herbs</h5>
+                   <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="herbs">
+                 </div>
+               </div>
+
+           </div>
+          </div>
+
+            <div class="drink-filter-container px-3 pb-3">
+
+              <h3 class="text-center"><i><svg class="filter-icon ps-2 pb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999" xml:space="preserve"><path style="fill:#6dd0e3" d="M270.622 70.856s-4.161 29.838-9.604 75.326c-10.06 83.985-24.496 221.348-25.227 322.974-35.263.024-113.452.024-148.727 0-.718-101.626-15.154-238.99-25.214-322.974-5.444-45.488-9.605-75.326-9.605-75.326h218.377z"/><path style="fill:#34a4ba" d="M83.096 143.272c-4.193-35.858-7.621-62.197-8.978-72.416H52.245s4.161 29.838 9.604 75.326c10.06 83.985 24.497 221.348 25.215 322.974 5.975.004 13.185.007 21.204.01-1.105-103.518-15.263-241.215-25.172-325.894z"/><path style="fill:#f7e9e1" d="m102.673 11.438 8.841 176.071a2.398 2.398 0 0 0 2.515 2.275l21.555-1.083a2.398 2.398 0 0 0 2.275-2.516l-8.841-176.071a2.398 2.398 0 0 0-2.515-2.275l-21.555 1.083a2.398 2.398 0 0 0-2.275 2.516z"/><path style="fill:#6dd0e3" d="M87.061 452.012h148.908v52.149H87.061z"/><path style="fill:#34a4ba" d="M87.061 452.012h20.898v52.149H87.061z"/><path style="fill:#8aa848" d="M331.149 268.19v-76.462a2.09 2.09 0 0 0-2.254-2.084l-23.198 1.829a2.09 2.09 0 0 0-1.91 2.335l9.243 76.208 18.119-1.826z"/><path style="fill:#ffa163" d="M261.019 146.182c-10.06 83.985-24.496 221.348-25.227 322.974-35.263.024-113.452.024-148.727 0-.719-101.626-15.155-238.99-25.215-322.974h199.169z"/><path style="fill:#e88441" d="M108.223 469.156c-.719-101.626-15.156-238.989-25.215-322.974H61.849c10.06 83.985 24.497 221.348 25.215 322.974 19.834.014 53.238.02 84.947.018-24.685-.002-48.347-.007-63.788-.018z"/><path style="fill:#ffdc7b" d="M204.471 293.996c-.305 0-.612-.014-.922-.041-5.749-.503-10.002-5.57-9.499-11.319 4.509-51.563 6.05-64.866 10.623-104.358l.778-6.722c.662-5.732 5.844-9.85 11.581-9.178 5.732.663 9.842 5.848 9.178 11.581l-.778 6.724c-4.548 39.274-6.08 52.504-10.564 103.774-.475 5.439-5.038 9.539-10.397 9.539z"/><path style="fill:#a1efff" d="M221.279 132.206c-.415 0-.833-.024-1.255-.075-5.73-.685-9.819-5.887-9.133-11.616 1.151-9.624 2.329-14.933 3.501-24.299.718-5.726 5.941-9.789 11.666-9.071 5.726.717 9.788 5.939 9.071 11.666-1.168 9.33-2.342 14.6-3.488 24.186-.635 5.309-5.146 9.209-10.362 9.209z"/><path style="fill:#a9cf54" d="M331.149 257.077s11.844-39.26 23.722-53.42c19.913-11.243 52.099-17.665 52.099-17.665s-9.161 33.655-21.505 53.018c-12.821 6.448-54.316 18.067-54.316 18.067z"/><ellipse style="fill:#ffa163" cx="331.149" cy="381.69" rx="128.606" ry="122.472"/><path style="fill:#e88441" d="M223.442 381.691c0-64.288 52.017-117.002 118.157-122.067a136.79 136.79 0 0 0-10.449-.404c-71.027 0-128.606 54.832-128.606 122.471s57.578 122.471 128.605 122.471c3.518 0 7.002-.14 10.449-.404-66.139-5.064-118.156-57.778-118.156-122.067z"/><ellipse transform="rotate(-47.39 400.116 315.385)" style="fill:#ffdc7b" cx="400.114" cy="315.392" rx="10.339" ry="12.56"/><path d="M459.755 373.855a7.837 7.837 0 0 0-7.837 7.837c0 63.209-54.177 114.634-120.769 114.634-66.591 0-120.768-51.425-120.768-114.634s54.177-114.635 120.768-114.635c48.709 0 92.412 27.533 111.338 70.144 1.759 3.956 6.391 5.739 10.342 3.981a7.837 7.837 0 0 0 3.982-10.343c-17.01-38.296-51.58-65.82-92.555-75.567 9.785-3.175 19.419-6.59 24.73-9.261a7.84 7.84 0 0 0 3.087-2.788c12.838-20.136 22.072-53.752 22.459-55.173a7.828 7.828 0 0 0-1.833-7.405 7.83 7.83 0 0 0-7.262-2.337c-1.365.272-33.653 6.801-54.417 18.526a7.854 7.854 0 0 0-2.151 1.787c-3.157 3.764-6.462 9.187-9.883 16.191V191.73a9.95 9.95 0 0 0-3.211-7.314c-2.039-1.871-4.793-2.812-7.499-2.577l-23.202 1.829a9.98 9.98 0 0 0-6.881 3.591 10.008 10.008 0 0 0-2.189 7.495l7.21 59.383c-17.433 3.477-33.654 10.142-47.964 19.324 3.75-40.052 8.297-82.464 13.547-126.347 5.371-44.875 9.542-74.877 9.584-75.176a7.836 7.836 0 0 0-7.762-8.919h-47.606a7.837 7.837 0 0 0 0 15.674h38.632c-1.503 11.208-4.274 32.334-7.58 59.653H143.3l-2.996-59.651h29.491a7.837 7.837 0 0 0 0-15.674h-30.279L136.84 9.746a10.163 10.163 0 0 0-3.353-7.1 10.183 10.183 0 0 0-7.378-2.634l-21.531 1.085c-5.633.266-10.001 5.072-9.734 10.738l2.568 51.185H52.245a7.837 7.837 0 0 0-7.763 8.92c.042.298 4.212 30.285 9.582 75.15l.001.024a5357.676 5357.676 0 0 1 4.245 36.495l.255 2.283c.354 3.155.707 6.304 1.053 9.441.2 1.805.394 3.599.59 5.398.229 2.091.46 4.187.685 6.269.247 2.285.489 4.557.731 6.832.171 1.601.345 3.209.513 4.804.256 2.416.506 4.817.755 7.22.154 1.469.309 2.946.46 4.408.232 2.243.458 4.472.685 6.703.208 2.047.42 4.103.625 6.138a7.836 7.836 0 1 0 15.594-1.568l-.206-2.024-.001-.026-.251-2.459c-.271-2.666-.542-5.334-.819-8.02-.124-1.205-.251-2.416-.377-3.624-.258-2.486-.518-4.976-.783-7.477l-.469-4.417c-.234-2.195-.468-4.392-.706-6.597-.19-1.766-.382-3.537-.576-5.309-.207-1.903-.415-3.808-.626-5.717-.224-2.03-.448-4.063-.675-6.099l-.545-4.881c-.258-2.304-.518-4.61-.781-6.921-.15-1.328-.303-2.657-.455-3.987-.294-2.566-.588-5.135-.886-7.708-.125-1.087-.253-2.175-.379-3.263-.321-2.753-.643-5.509-.969-8.269l-.085-.723h181.521l-.061.513-.177 1.507c-.298 2.533-.595 5.061-.887 7.584l-.336 2.906c-.235 2.032-.47 4.064-.702 6.089a7658.802 7658.802 0 0 0-1.025 9.022 7418.875 7418.875 0 0 0-1.98 17.824l-.447 4.112c-.172 1.587-.344 3.173-.514 4.756l-.44 4.109-.502 4.72-.43 4.084c-.165 1.57-.328 3.137-.491 4.701-.14 1.348-.28 2.694-.418 4.037l-.482 4.704c-.135 1.324-.271 2.648-.403 3.967-.159 1.564-.315 3.123-.471 4.681a8801.3 8801.3 0 0 0-.395 3.951c-.156 1.57-.309 3.135-.463 4.699-.126 1.284-.253 2.57-.377 3.85-.156 1.597-.308 3.186-.462 4.775l-.354 3.685c-.161 1.69-.32 3.371-.478 5.052l-.317 3.357c-.173 1.856-.343 3.701-.513 5.546l-.259 2.802c-.16 1.747-.316 3.483-.472 5.221-26.818 23.81-43.628 57.772-43.628 95.418 0 29.967 10.653 57.598 28.524 79.636-35.918.014-94.683.013-128.413-.001-.578-42.994-3.513-95.858-8.735-157.308-.367-4.311-4.158-7.503-8.472-7.145a7.838 7.838 0 0 0-7.145 8.472c5.508 64.804 8.455 119.937 8.759 163.867v34.952a7.837 7.837 0 0 0 7.837 7.837H235.97a7.837 7.837 0 0 0 7.837-7.837v-22.443c23.682 18.893 54.143 30.28 87.342 30.28 75.235 0 136.443-58.456 136.443-130.307a7.836 7.836 0 0 0-7.837-7.836zm-332.148-235.51h-10.721l-2.994-59.651h10.719l2.996 59.651zM110.771 16.477l10.689-.539 2.365 47.082h-10.719l-2.335-46.543zM68.799 138.345c-3.306-27.32-6.077-48.445-7.58-59.651H98.2l2.993 59.651H68.799zm291.221 71.423c10.765-5.795 25.134-10.237 35.43-12.971-3.488 10.518-9.005 25.357-15.433 36.118-7.964 3.54-23.986 8.641-36.705 12.459 4.417-12.301 10.781-27.824 16.708-35.606zm-47.733-10.949 11.026-.869v53.654c-1.533.084-3.058.193-4.578.325l-6.448-53.11zM94.898 496.326V477c17.634.008 42.08.011 66.533.011 24.533 0 49.06-.004 66.702-.011v19.326H94.898z"/><circle cx="358.484" cy="329.811" r="7.837"/><circle cx="375.463" cy="416.673" r="7.837"/><circle cx="327.837" cy="364.857" r="7.837"/><circle cx="291.192" cy="405.42" r="7.837"/><circle cx="309.624" cy="331.901" r="7.837"/><circle cx="327.837" cy="438.083" r="7.837"/><circle cx="346.823" cy="393.633" r="7.837"/><circle cx="268.675" cy="373.853" r="7.837"/><circle cx="397.072" cy="363.279" r="7.837"/>
+              </svg></i>Drinks</h3>
+
+              <div class="drink-filter border border-black">
+
+                <div class="checkbox-container  px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Drink</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="drink">
+                  </div>
+                </div>
+
+                <div class="checkbox-container  px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Water</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="water">
+                  </div>
+                </div>
+
+                <div class="checkbox-container  px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text">Juice</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="juice">
+                  </div>
+                </div>
+
+            </div>
+           </div>
+
+           <div class="spice-filter-container px-3 pb-3">
+
+             <h3 class="text-center"><i><svg class="filter-icon ps-2 pb-2"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="m448 42.667-21.333 64s-64 0-85.334 21.333L448 213.333s42.667-128 42.667-170.666 0-21.334-21.334-21.334S448 42.667 448 42.667z" style="fill:#fdbc34"/><path d="m452.77 198.615-20.332-6.5c23.104-72.282 36.895-128.105 36.895-149.323h21.334c0 32.375-23.75 111.52-37.896 155.823z" style="fill:#f59707"/><path d="M21.333 490.667s0-64 42.667-106.667c64-64 170.667-42.667 170.667-128s42.666-149.333 106.666-149.333S448 149.333 448 213.333s-64 192-256 192c-128 0-149.333 85.334-149.333 85.334z" style="fill:#c82e25"/><path d="M277.333 256H256c0-75.365 35.083-128 85.333-128v21.333c-37.687 0-64 43.865-64 106.667z" style="fill:#d96c66"/><path d="m284.542 203.781-20.375-6.27C277.542 153.99 306.396 128 341.333 128v21.333c-25.437 0-46.146 19.844-56.791 54.448z" style="fill:#e59b96"/><path d="M426.667 213.333C426.667 269.021 369.313 384 192 384" style="fill:#c82e25"/><path d="M192 405.333v-42.666c161.188 0 213.333-100.615 213.333-149.334H448c0 62.646-62.583 192-256 192z" style="fill:#af0a00"/><path d="M42.292 490.667H32.75v-11.594l-7.604-3.031C33.77 454.458 71.27 384 192 384c177.313 0 234.667-114.98 234.667-170.667 0-52.635-32.688-85.333-85.334-85.333v-21.333C405.125 106.667 448 149.53 448 213.333c0 62.646-62.583 192-256 192-104.375 0-137.604 54.98-147.02 78.625z" style="fill:#af0a00"/>
+             </svg></i>
+             Spice</h3>
+
+             <div class="spice-filter border border-black">
+
+               <div class="checkbox-container  px-3">
+                 <div class="form-check form-check-reverse category-input">
+                   <h5 class="form-check-text">Spice</h5>
+                   <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="spice">
+                 </div>
+               </div>
+
+               <div class="checkbox-container  px-3">
+                 <div class="form-check form-check-reverse category-input">
+                   <h5 class="form-check-text">Sweet</h5>
+                   <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="sweet">
+                 </div>
+               </div>
+
+               <div class="checkbox-container  px-3">
+                 <div class="form-check form-check-reverse category-input">
+                   <h5 class="form-check-text">Spicy</h5>
+                   <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="spicy">
+                 </div>
+               </div>
+
+               <div class="checkbox-container  px-3">
+                 <div class="form-check form-check-reverse category-input">
+                   <h5 class="form-check-text">Warm</h5>
+                   <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="warm">
+                 </div>
+               </div>
+
+           </div>
+          </div>
+
+          <div class="grain-filter-container px-3 pb-3">
+
+            <h3 class="text-center"><i><svg class="filter-icon ps-2 pb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M32 490.667a10.667 10.667 0 0 1-7.542-18.209l448-448a10.666 10.666 0 1 1 15.084 15.084l-448 448A10.632 10.632 0 0 1 32 490.667z" style="fill:#ffbe00"/><path d="M341.333 181.333a10.667 10.667 0 0 1-7.541-18.208l21.333-21.333a10.666 10.666 0 0 1 15.083 15.083l-21.333 21.333a10.632 10.632 0 0 1-7.542 3.125zM256 266.667a10.667 10.667 0 0 1-7.542-18.209l42.667-42.666a10.666 10.666 0 0 1 15.083 15.083l-42.666 42.667a10.632 10.632 0 0 1-7.542 3.125zM170.667 352a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.541 3.125zM85.333 437.333a10.667 10.667 0 0 1-7.541-18.208l42.666-42.667a10.666 10.666 0 0 1 15.084 15.084l-42.667 42.666a10.632 10.632 0 0 1-7.542 3.125z" style="fill:#ffa300"/><ellipse cx="394.667" cy="117.333" rx="62.75" ry="41.834" transform="rotate(-45 394.667 117.333)" style="fill:#ffbe00"/><ellipse cx="394.667" cy="96" rx="36.121" ry="27.259" transform="rotate(-45 394.667 96)" style="fill:#ffd80c"/><ellipse cx="384" cy="85.333" rx="26.626" ry="14.174" transform="rotate(-45 384 85.333)" style="fill:#ffec6c"/><ellipse cx="192" cy="416" rx="85.333" ry="53.333" style="fill:#ffbe00"/><ellipse cx="96" cy="320" rx="53.333" ry="85.333" style="fill:#ffbe00"/><ellipse cx="170.667" cy="405.333" rx="64" ry="42.667" style="fill:#ffd80c"/><ellipse cx="192" cy="245.333" rx="42.667" ry="74.667" style="fill:#ffbe00"/><ellipse cx="266.667" cy="320" rx="74.667" ry="42.667" style="fill:#ffbe00"/><ellipse cx="245.333" cy="309.333" rx="53.333" ry="32" style="fill:#ffd80c"/><ellipse cx="341.333" cy="234.667" rx="64" ry="42.667" style="fill:#ffbe00"/><ellipse cx="330.667" cy="224" rx="53.333" ry="32" style="fill:#ffd80c"/><ellipse cx="85.333" cy="309.333" rx="42.667" ry="74.667" style="fill:#ffd80c"/><ellipse cx="64" cy="298.667" rx="21.333" ry="42.667" style="fill:#ffec6c"/><ellipse cx="277.333" cy="170.667" rx="42.667" ry="64" style="fill:#ffbe00"/><ellipse cx="181.333" cy="234.667" rx="32" ry="64" style="fill:#ffd80c"/><ellipse cx="266.667" cy="160" rx="32" ry="53.333" style="fill:#ffd80c"/><path d="M266.667 128a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.541 3.125z" style="fill:#ffea21"/><path d="M394.667 256a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.541 3.125z" style="fill:#ffbe00"/><path d="M181.333 192a10.667 10.667 0 0 1-7.541-18.208l42.666-42.667a10.666 10.666 0 1 1 15.084 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.542 3.125z" style="fill:#ffea21"/><path d="M330.667 341.333a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.084l-42.667 42.666a10.632 10.632 0 0 1-7.541 3.125z" style="fill:#ffbe00"/><path d="M74.667 256a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667A10.632 10.632 0 0 1 74.667 256z" style="fill:#ffea21"/><path d="M266.667 448a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.541 3.125z" style="fill:#ffbe00"/><ellipse cx="245.333" cy="298.667" rx="32" ry="21.333" style="fill:#ffec6c"/><ellipse cx="181.333" cy="384" rx="32" ry="21.333" style="fill:#ffec6c"/><ellipse cx="330.667" cy="213.333" rx="32" ry="21.333" style="fill:#ffec6c"/><ellipse cx="170.667" cy="224" rx="21.333" ry="32" style="fill:#ffec6c"/><ellipse cx="245.333" cy="149.333" rx="10.667" ry="21.333" style="fill:#ffec6c"/>
+            </svg></i>
+            Grain</h3>
+
+            <div class="grain-filter border border-black">
+
+              <div class="checkbox-container  px-3">
+                <div class="form-check form-check-reverse category-input">
+                  <h5 class="form-check-text">Grain</h5>
+                  <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="grain">
+                </div>
+              </div>
+
+          </div>
+         </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <div data-bs-spy="scroll" data-bs-target="#navbar" class="scrollspy-container rounded-2" tabindex="0">
+
+      <div id="whole-product" class="whole-product mt-4">
+
+        <!-- Left Side -->
+
+        <div class="col-md-3 left-side-container px-2">
+          <div class="left-side col-xl-10 col-lg-12">
+
+          <div class="offer-container my-3">
+
+            <h2 class="card-title fw-bold pb-md-2">Offers</h2>
+
+              <div class="offer-input-container border">
+
+                <div class="checkbox-container border-bottom px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text"><i class="fa-solid fa-tags"></i> Discount</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="discount">
+                  </div>
+                </div>
+
+                <div class="checkbox-container border-bottom px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text"><i class="fa-solid fa-thumbs-up"></i> Best Seller</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="best">
+                  </div>
+                </div>
+
+                <div class="checkbox-container border-bottom px-3">
+                  <div class="form-check form-check-reverse category-input">
+                    <h5 class="form-check-text"><i class="fa-solid fa-heart"></i> Recommended</h5>
+                    <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="recommend">
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+
+          <div class="categories-container">
+            <h2 class="card-title fw-bold pb-md-4">Categories</h2>
+
+            <div class="accordion" id="accordionPanelsStayOpen">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-fruit" aria-expanded="false" aria-controls="accordion-fruit">
+                  <i class="col-2 pe-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M320 21.333c-64 0-85.333 42.667-85.333 85.334H256q0-64 64-64z" style="fill:#7d1a00"/><path d="M341.333 64c-64 0-64 21.333-85.333 21.333S234.667 64 170.667 64 21.333 106.667 21.333 213.333s64 102.4 64 172.8S128 490.667 170.667 490.667c64 0 64-21.334 85.333-21.334s21.333 21.334 85.333 21.334c42.667 0 85.334-34.134 85.334-104.534 0-66.133 64-66.133 64-172.8S405.333 64 341.333 64z" style="fill:#c82e25"/><path d="M170.667 490.667c-41.104 0-85.334-32.709-85.334-104.532 0-31.562-13.135-48.468-27.041-66.375l33.698-26.177c15.198 19.573 36.01 46.365 36.01 92.552C128 431.802 150.98 448 170.667 448c29.146 0 37.552-4.854 44.968-9.135 7.875-4.553 21.084-12.198 40.365-12.198s32.49 7.646 40.385 12.218l-21.375 36.917c-6-3.469-11.187-6.469-19.01-6.469s-13.01 3-19.01 6.47c-13.584 7.843-28.855 14.864-66.323 14.864z" style="fill:#af0a00"/><path d="M341.333 490.667c-37.458 0-52.729-7.021-66.28-14.844l42.645-73.906c2.854 1.646 5.573 3.208 20.531 3.396 1.156-2.375 3.104-8.032 3.104-19.178 0-57.937 26.344-92.51 43.782-115.385 14.302-18.781 20.218-26.552 20.218-57.417 0-60.916-53.312-64-64-64V64c60.032 0 149.334 39.77 149.334 149.333 0 59.657-20.01 85.927-37.657 109.104C438.865 341 426.667 357 426.667 386.135c0 71.823-44.23 104.532-85.334 104.532z" style="fill:#af0a00"/><ellipse cx="149.333" cy="170.667" rx="74.281" ry="51.7" transform="rotate(-45 149.333 170.667)" style="fill:#d2514a"/><ellipse cx="117.333" cy="160" rx="39.18" ry="22.634" transform="rotate(-45 117.333 160)" style="fill:#de807a"/>
+                  </svg></i>
+                  <h4>Fruit</h4>
+                  </button>
+                </h2>
+
+                <div id="accordion-fruit" class="accordion-collapse collapse ">
+                  <div class="accordion-body">
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Fruit</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="fruit">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Berries</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="berry">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Citrus</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="citrus">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Melon</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="melon">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Tropical</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="tropical">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Apple & Pear</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="apple-pear">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Others</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="other-fruit">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-veggies" aria-expanded="false" aria-controls="accordion-veggies">
+                    <i class="col-2 pe-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M277.333 21.333h-42.666c0 106.667-213.334 128-213.334 277.334 0 170.666 192 170.666 192 170.666s0 21.334 42.667 21.334 42.667-21.334 42.667-21.334 192 0 192-170.666c0-149.334-213.334-170.667-213.334-277.334z" style="fill:#e0d4b7"/><path d="M213.313 469.333c-7.834-.01-191.98-2.208-191.98-170.666 0-80.948 63.792-125.052 120.063-163.97 45.042-31.155 87.542-60.551 92.729-103.957l21.167 2.52c-6.313 52.959-52.646 85.01-101.709 118.948-57.062 39.459-110.916 76.698-110.916 146.459 0 147.396 163.708 149.323 170.687 149.333z" style="fill:#d4c3a2"/><path d="M277.333 21.333H256v448h42.667s192 0 192-170.666c0-149.334-213.334-170.667-213.334-277.334z" style="fill:#c5af83"/><path d="m344.583 456.167-13.791-16.292C364.604 411.271 384 367.583 384 320c0-50.896-28.938-91.802-59.604-135.115C290.729 137.313 256 88.22 256 21.333h21.333c0 60.104 32.75 106.375 64.417 151.136 32.73 46.26 63.583 89.854 63.583 147.531 0 53.865-22.146 103.5-60.75 136.167z" style="fill:#b99e69"/><path d="m298.73 469.333-.21-42.666c15.313-.073 149.48-4.24 149.48-128 0-58.563-49.375-92.72-101.646-128.875-31.562-21.813-64.208-44.375-86.166-74.104l34.291-25.355c17.771 24.021 47.438 44.521 76.125 64.355 56.292 38.927 120.063 83.052 120.063 163.979 0 167.875-184.104 170.635-191.938 170.666z" style="fill:#b99e69"/><path d="M179.02 465.083c-45.312-31.646-72.353-85.875-72.353-145.083 0-57.677 30.854-101.27 63.52-147.438 31.73-44.854 64.48-91.125 64.48-151.229H256c0 66.886-34.73 115.98-68.333 163.459C156.937 228.198 128 269.104 128 320c0 52.24 23.646 99.938 63.23 127.604z" style="fill:#d4c3a2"/><path d="M256 469.333c64 0 128-64 128-149.333 0-106.667-128-170.667-128-298.667 0 128-128 192-128 298.667 0 85.333 64 149.333 128 149.333z" style="fill:#eae2ce"/><path d="M298.667 319.999c0 85.333-10.667 149.333-42.667 149.333h.02C320.015 469.319 384 405.324 384 320c0-106.667-128-170.665-128-298.665 0 127.996 42.667 191.998 42.667 298.664z" style="fill:#d4c3a2"/><path d="m335.833 403.292-17.125-12.75c10.334-13.854 22.625-37.334 22.625-70.542 0-22.27-8.062-44.469-26.958-74.24C311.687 241.01 256 140.927 256 96h21.333c0 32.719 39.959 111.313 55.354 138.833 14.667 23.084 29.98 51.709 29.98 85.167 0 30.906-9.292 59.708-26.834 83.292z" style="fill:#c5af83"/><path d="M237.792 466.208C235.917 464.344 192 419.396 192 330.667c0-47.344 12.813-88.73 24.104-125.25 9.542-30.854 18.563-59.99 18.563-88.084H256c0 31.313-9.48 61.959-19.52 94.396-11.376 36.781-23.147 74.823-23.147 118.938 0 79.396 39.167 120.083 39.563 120.49z" style="fill:#f3eee3"/><path d="M109.792 423.542C107.917 421.677 64 376.969 64 309.333c0-47.812 21.625-73.448 49-105.916 11.75-13.948 25.063-29.75 38.125-49.334l17.75 11.834c-13.73 20.583-27.458 36.875-39.583 51.25-25.521 30.27-43.959 52.146-43.959 92.166 0 58.896 39.146 98.73 39.542 99.125z" style="fill:#eae2ce"/>
+                    </svg></i>
+                  <h4>Veggies</h4>
+                  </button>
+                </h2>
+
+                <div id="accordion-veggies" class="accordion-collapse collapse ">
+                  <div class="accordion-body">
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Veggies</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="veggies">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Cruciferous Veggies</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="cruciferous">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Root Veggies</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="root">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Others</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="other-veggies">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-herbs" aria-expanded="false" aria-controls="accordion-herbs">
+                  <i class="col-2 pe-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198.41 186.36"><defs><style>.cls-1,.cls-5{stroke-miterlimit:10;stroke-width:6px}.cls-1{fill:#f2a7c5;stroke:#1f2687}.cls-5{stroke:#212683}.cls-4{fill:#212683}.cls-5{fill:none}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="m137.16 66.17 18.13-20.99-20.44-17.66-32.91 38.1.64.55"/><rect class="cls-1" x="121.3" y="18.55" width="60.78" height="20.26" rx="10.13" ry="10.13" transform="rotate(40.82 151.705 28.684)"/><path d="M36.59 112.5a44 44 0 0 0 43.89 41h53.33a44 44 0 0 0 44-44V75.83a9.65 9.65 0 0 0-9.66-9.66h-122a9.66 9.66 0 0 0-9.67 9.66V81" style="stroke:#212683;fill:#9faed0;stroke-miterlimit:10;stroke-width:6px"/><path d="M63.15 153.5h88v9.83a4.83 4.83 0 0 1-4.83 4.83H68a4.83 4.83 0 0 1-4.83-4.83v-9.83h-.02z" style="fill:#a8dedb;stroke-miterlimit:10;stroke-width:6px;stroke:#1f2687"/><path class="cls-4" d="M37.14 7.85h-4a1.73 1.73 0 0 1-1.74-1.73v-4A2.07 2.07 0 0 0 29.72 0a2 2 0 0 0-2.25 2v4.12a1.73 1.73 0 0 1-1.73 1.73h-4a2.07 2.07 0 0 0-2.09 1.68 2 2 0 0 0 1.94 2.25h4.15a1.73 1.73 0 0 1 1.73 1.73v4a2.07 2.07 0 0 0 1.68 2.09 2 2 0 0 0 2.25-1.94v-4.15a1.73 1.73 0 0 1 1.73-1.73h4.15a2 2 0 0 0 1.94-2.25 2.07 2.07 0 0 0-2.08-1.68zM17.51 174.58h-4a1.73 1.73 0 0 1-1.73-1.73v-4a2.07 2.07 0 0 0-1.68-2.09 2 2 0 0 0-2.25 1.94v4.15a1.73 1.73 0 0 1-1.73 1.73h-4A2.07 2.07 0 0 0 0 176.26a2 2 0 0 0 2 2.25h4.12a1.73 1.73 0 0 1 1.73 1.73v4a2.07 2.07 0 0 0 1.68 2.09 2 2 0 0 0 2.25-1.94v-4.15a1.73 1.73 0 0 1 1.73-1.73h4.15a2 2 0 0 0 1.94-2.25 2.07 2.07 0 0 0-2.09-1.68zM197.14 175.37h-2.4a1 1 0 0 1-1-1v-2.4a1.24 1.24 0 0 0-1-1.26 1.18 1.18 0 0 0-1.35 1.17v2.49a1 1 0 0 1-1 1h-2.4a1.24 1.24 0 0 0-1.26 1 1.18 1.18 0 0 0 1.17 1.35h2.49a1 1 0 0 1 1 1v2.4a1.24 1.24 0 0 0 1 1.26 1.18 1.18 0 0 0 1.35-1.17v-2.49a1 1 0 0 1 1-1h2.49a1.18 1.18 0 0 0 1.17-1.35 1.24 1.24 0 0 0-1.26-1z"/><circle class="cls-4" cx="36.07" cy="97.33" r="3.18"/><path class="cls-5" d="M177.81 86.17H98.48M94.15 86.17H81.48M177.81 109.5h-49.19"/></g></g>
+                  </svg></i>
+                  <h4>Herbs</h4>
+                  </button>
+                </h2>
+
+                <div id="accordion-herbs" class="accordion-collapse collapse ">
+                  <div class="accordion-body">
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Herbs</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="herbs">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-drink" aria-expanded="false" aria-controls="accordion-drink">
+                  <i class="col-2 pe-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999" xml:space="preserve"><path style="fill:#6dd0e3" d="M270.622 70.856s-4.161 29.838-9.604 75.326c-10.06 83.985-24.496 221.348-25.227 322.974-35.263.024-113.452.024-148.727 0-.718-101.626-15.154-238.99-25.214-322.974-5.444-45.488-9.605-75.326-9.605-75.326h218.377z"/><path style="fill:#34a4ba" d="M83.096 143.272c-4.193-35.858-7.621-62.197-8.978-72.416H52.245s4.161 29.838 9.604 75.326c10.06 83.985 24.497 221.348 25.215 322.974 5.975.004 13.185.007 21.204.01-1.105-103.518-15.263-241.215-25.172-325.894z"/><path style="fill:#f7e9e1" d="m102.673 11.438 8.841 176.071a2.398 2.398 0 0 0 2.515 2.275l21.555-1.083a2.398 2.398 0 0 0 2.275-2.516l-8.841-176.071a2.398 2.398 0 0 0-2.515-2.275l-21.555 1.083a2.398 2.398 0 0 0-2.275 2.516z"/><path style="fill:#6dd0e3" d="M87.061 452.012h148.908v52.149H87.061z"/><path style="fill:#34a4ba" d="M87.061 452.012h20.898v52.149H87.061z"/><path style="fill:#8aa848" d="M331.149 268.19v-76.462a2.09 2.09 0 0 0-2.254-2.084l-23.198 1.829a2.09 2.09 0 0 0-1.91 2.335l9.243 76.208 18.119-1.826z"/><path style="fill:#ffa163" d="M261.019 146.182c-10.06 83.985-24.496 221.348-25.227 322.974-35.263.024-113.452.024-148.727 0-.719-101.626-15.155-238.99-25.215-322.974h199.169z"/><path style="fill:#e88441" d="M108.223 469.156c-.719-101.626-15.156-238.989-25.215-322.974H61.849c10.06 83.985 24.497 221.348 25.215 322.974 19.834.014 53.238.02 84.947.018-24.685-.002-48.347-.007-63.788-.018z"/><path style="fill:#ffdc7b" d="M204.471 293.996c-.305 0-.612-.014-.922-.041-5.749-.503-10.002-5.57-9.499-11.319 4.509-51.563 6.05-64.866 10.623-104.358l.778-6.722c.662-5.732 5.844-9.85 11.581-9.178 5.732.663 9.842 5.848 9.178 11.581l-.778 6.724c-4.548 39.274-6.08 52.504-10.564 103.774-.475 5.439-5.038 9.539-10.397 9.539z"/><path style="fill:#a1efff" d="M221.279 132.206c-.415 0-.833-.024-1.255-.075-5.73-.685-9.819-5.887-9.133-11.616 1.151-9.624 2.329-14.933 3.501-24.299.718-5.726 5.941-9.789 11.666-9.071 5.726.717 9.788 5.939 9.071 11.666-1.168 9.33-2.342 14.6-3.488 24.186-.635 5.309-5.146 9.209-10.362 9.209z"/><path style="fill:#a9cf54" d="M331.149 257.077s11.844-39.26 23.722-53.42c19.913-11.243 52.099-17.665 52.099-17.665s-9.161 33.655-21.505 53.018c-12.821 6.448-54.316 18.067-54.316 18.067z"/><ellipse style="fill:#ffa163" cx="331.149" cy="381.69" rx="128.606" ry="122.472"/><path style="fill:#e88441" d="M223.442 381.691c0-64.288 52.017-117.002 118.157-122.067a136.79 136.79 0 0 0-10.449-.404c-71.027 0-128.606 54.832-128.606 122.471s57.578 122.471 128.605 122.471c3.518 0 7.002-.14 10.449-.404-66.139-5.064-118.156-57.778-118.156-122.067z"/><ellipse transform="rotate(-47.39 400.116 315.385)" style="fill:#ffdc7b" cx="400.114" cy="315.392" rx="10.339" ry="12.56"/><path d="M459.755 373.855a7.837 7.837 0 0 0-7.837 7.837c0 63.209-54.177 114.634-120.769 114.634-66.591 0-120.768-51.425-120.768-114.634s54.177-114.635 120.768-114.635c48.709 0 92.412 27.533 111.338 70.144 1.759 3.956 6.391 5.739 10.342 3.981a7.837 7.837 0 0 0 3.982-10.343c-17.01-38.296-51.58-65.82-92.555-75.567 9.785-3.175 19.419-6.59 24.73-9.261a7.84 7.84 0 0 0 3.087-2.788c12.838-20.136 22.072-53.752 22.459-55.173a7.828 7.828 0 0 0-1.833-7.405 7.83 7.83 0 0 0-7.262-2.337c-1.365.272-33.653 6.801-54.417 18.526a7.854 7.854 0 0 0-2.151 1.787c-3.157 3.764-6.462 9.187-9.883 16.191V191.73a9.95 9.95 0 0 0-3.211-7.314c-2.039-1.871-4.793-2.812-7.499-2.577l-23.202 1.829a9.98 9.98 0 0 0-6.881 3.591 10.008 10.008 0 0 0-2.189 7.495l7.21 59.383c-17.433 3.477-33.654 10.142-47.964 19.324 3.75-40.052 8.297-82.464 13.547-126.347 5.371-44.875 9.542-74.877 9.584-75.176a7.836 7.836 0 0 0-7.762-8.919h-47.606a7.837 7.837 0 0 0 0 15.674h38.632c-1.503 11.208-4.274 32.334-7.58 59.653H143.3l-2.996-59.651h29.491a7.837 7.837 0 0 0 0-15.674h-30.279L136.84 9.746a10.163 10.163 0 0 0-3.353-7.1 10.183 10.183 0 0 0-7.378-2.634l-21.531 1.085c-5.633.266-10.001 5.072-9.734 10.738l2.568 51.185H52.245a7.837 7.837 0 0 0-7.763 8.92c.042.298 4.212 30.285 9.582 75.15l.001.024a5357.676 5357.676 0 0 1 4.245 36.495l.255 2.283c.354 3.155.707 6.304 1.053 9.441.2 1.805.394 3.599.59 5.398.229 2.091.46 4.187.685 6.269.247 2.285.489 4.557.731 6.832.171 1.601.345 3.209.513 4.804.256 2.416.506 4.817.755 7.22.154 1.469.309 2.946.46 4.408.232 2.243.458 4.472.685 6.703.208 2.047.42 4.103.625 6.138a7.836 7.836 0 1 0 15.594-1.568l-.206-2.024-.001-.026-.251-2.459c-.271-2.666-.542-5.334-.819-8.02-.124-1.205-.251-2.416-.377-3.624-.258-2.486-.518-4.976-.783-7.477l-.469-4.417c-.234-2.195-.468-4.392-.706-6.597-.19-1.766-.382-3.537-.576-5.309-.207-1.903-.415-3.808-.626-5.717-.224-2.03-.448-4.063-.675-6.099l-.545-4.881c-.258-2.304-.518-4.61-.781-6.921-.15-1.328-.303-2.657-.455-3.987-.294-2.566-.588-5.135-.886-7.708-.125-1.087-.253-2.175-.379-3.263-.321-2.753-.643-5.509-.969-8.269l-.085-.723h181.521l-.061.513-.177 1.507c-.298 2.533-.595 5.061-.887 7.584l-.336 2.906c-.235 2.032-.47 4.064-.702 6.089a7658.802 7658.802 0 0 0-1.025 9.022 7418.875 7418.875 0 0 0-1.98 17.824l-.447 4.112c-.172 1.587-.344 3.173-.514 4.756l-.44 4.109-.502 4.72-.43 4.084c-.165 1.57-.328 3.137-.491 4.701-.14 1.348-.28 2.694-.418 4.037l-.482 4.704c-.135 1.324-.271 2.648-.403 3.967-.159 1.564-.315 3.123-.471 4.681a8801.3 8801.3 0 0 0-.395 3.951c-.156 1.57-.309 3.135-.463 4.699-.126 1.284-.253 2.57-.377 3.85-.156 1.597-.308 3.186-.462 4.775l-.354 3.685c-.161 1.69-.32 3.371-.478 5.052l-.317 3.357c-.173 1.856-.343 3.701-.513 5.546l-.259 2.802c-.16 1.747-.316 3.483-.472 5.221-26.818 23.81-43.628 57.772-43.628 95.418 0 29.967 10.653 57.598 28.524 79.636-35.918.014-94.683.013-128.413-.001-.578-42.994-3.513-95.858-8.735-157.308-.367-4.311-4.158-7.503-8.472-7.145a7.838 7.838 0 0 0-7.145 8.472c5.508 64.804 8.455 119.937 8.759 163.867v34.952a7.837 7.837 0 0 0 7.837 7.837H235.97a7.837 7.837 0 0 0 7.837-7.837v-22.443c23.682 18.893 54.143 30.28 87.342 30.28 75.235 0 136.443-58.456 136.443-130.307a7.836 7.836 0 0 0-7.837-7.836zm-332.148-235.51h-10.721l-2.994-59.651h10.719l2.996 59.651zM110.771 16.477l10.689-.539 2.365 47.082h-10.719l-2.335-46.543zM68.799 138.345c-3.306-27.32-6.077-48.445-7.58-59.651H98.2l2.993 59.651H68.799zm291.221 71.423c10.765-5.795 25.134-10.237 35.43-12.971-3.488 10.518-9.005 25.357-15.433 36.118-7.964 3.54-23.986 8.641-36.705 12.459 4.417-12.301 10.781-27.824 16.708-35.606zm-47.733-10.949 11.026-.869v53.654c-1.533.084-3.058.193-4.578.325l-6.448-53.11zM94.898 496.326V477c17.634.008 42.08.011 66.533.011 24.533 0 49.06-.004 66.702-.011v19.326H94.898z"/><circle cx="358.484" cy="329.811" r="7.837"/><circle cx="375.463" cy="416.673" r="7.837"/><circle cx="327.837" cy="364.857" r="7.837"/><circle cx="291.192" cy="405.42" r="7.837"/><circle cx="309.624" cy="331.901" r="7.837"/><circle cx="327.837" cy="438.083" r="7.837"/><circle cx="346.823" cy="393.633" r="7.837"/><circle cx="268.675" cy="373.853" r="7.837"/><circle cx="397.072" cy="363.279" r="7.837"/>
+                  </svg></i>
+                  <h4>Drink</h4>
+                  </button>
+                </h2>
+
+                <div id="accordion-drink" class="accordion-collapse collapse ">
+                  <div class="accordion-body">
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Drink</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="drink">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Water</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="water">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Juice</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="juice">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-spice" aria-expanded="false" aria-controls="accordion-spice">
+                  <i class="col-2 pe-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="m448 42.667-21.333 64s-64 0-85.334 21.333L448 213.333s42.667-128 42.667-170.666 0-21.334-21.334-21.334S448 42.667 448 42.667z" style="fill:#fdbc34"/><path d="m452.77 198.615-20.332-6.5c23.104-72.282 36.895-128.105 36.895-149.323h21.334c0 32.375-23.75 111.52-37.896 155.823z" style="fill:#f59707"/><path d="M21.333 490.667s0-64 42.667-106.667c64-64 170.667-42.667 170.667-128s42.666-149.333 106.666-149.333S448 149.333 448 213.333s-64 192-256 192c-128 0-149.333 85.334-149.333 85.334z" style="fill:#c82e25"/><path d="M277.333 256H256c0-75.365 35.083-128 85.333-128v21.333c-37.687 0-64 43.865-64 106.667z" style="fill:#d96c66"/><path d="m284.542 203.781-20.375-6.27C277.542 153.99 306.396 128 341.333 128v21.333c-25.437 0-46.146 19.844-56.791 54.448z" style="fill:#e59b96"/><path d="M426.667 213.333C426.667 269.021 369.313 384 192 384" style="fill:#c82e25"/><path d="M192 405.333v-42.666c161.188 0 213.333-100.615 213.333-149.334H448c0 62.646-62.583 192-256 192z" style="fill:#af0a00"/><path d="M42.292 490.667H32.75v-11.594l-7.604-3.031C33.77 454.458 71.27 384 192 384c177.313 0 234.667-114.98 234.667-170.667 0-52.635-32.688-85.333-85.334-85.333v-21.333C405.125 106.667 448 149.53 448 213.333c0 62.646-62.583 192-256 192-104.375 0-137.604 54.98-147.02 78.625z" style="fill:#af0a00"/>
+                  </svg></i>
+                  <h4>Spice</h4>
+                  </button>
+                </h2>
+
+                <div id="accordion-spice" class="accordion-collapse collapse ">
+                  <div class="accordion-body">
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Spice</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="spice">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Sweet</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="sweet">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Spicy</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="spicy">
+                      </div>
+                    </div>
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Warm</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="warm">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-grain" aria-expanded="false" aria-controls="accordion-grain">
+                  <i class="col-2 pe-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M32 490.667a10.667 10.667 0 0 1-7.542-18.209l448-448a10.666 10.666 0 1 1 15.084 15.084l-448 448A10.632 10.632 0 0 1 32 490.667z" style="fill:#ffbe00"/><path d="M341.333 181.333a10.667 10.667 0 0 1-7.541-18.208l21.333-21.333a10.666 10.666 0 0 1 15.083 15.083l-21.333 21.333a10.632 10.632 0 0 1-7.542 3.125zM256 266.667a10.667 10.667 0 0 1-7.542-18.209l42.667-42.666a10.666 10.666 0 0 1 15.083 15.083l-42.666 42.667a10.632 10.632 0 0 1-7.542 3.125zM170.667 352a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.541 3.125zM85.333 437.333a10.667 10.667 0 0 1-7.541-18.208l42.666-42.667a10.666 10.666 0 0 1 15.084 15.084l-42.667 42.666a10.632 10.632 0 0 1-7.542 3.125z" style="fill:#ffa300"/><ellipse cx="394.667" cy="117.333" rx="62.75" ry="41.834" transform="rotate(-45 394.667 117.333)" style="fill:#ffbe00"/><ellipse cx="394.667" cy="96" rx="36.121" ry="27.259" transform="rotate(-45 394.667 96)" style="fill:#ffd80c"/><ellipse cx="384" cy="85.333" rx="26.626" ry="14.174" transform="rotate(-45 384 85.333)" style="fill:#ffec6c"/><ellipse cx="192" cy="416" rx="85.333" ry="53.333" style="fill:#ffbe00"/><ellipse cx="96" cy="320" rx="53.333" ry="85.333" style="fill:#ffbe00"/><ellipse cx="170.667" cy="405.333" rx="64" ry="42.667" style="fill:#ffd80c"/><ellipse cx="192" cy="245.333" rx="42.667" ry="74.667" style="fill:#ffbe00"/><ellipse cx="266.667" cy="320" rx="74.667" ry="42.667" style="fill:#ffbe00"/><ellipse cx="245.333" cy="309.333" rx="53.333" ry="32" style="fill:#ffd80c"/><ellipse cx="341.333" cy="234.667" rx="64" ry="42.667" style="fill:#ffbe00"/><ellipse cx="330.667" cy="224" rx="53.333" ry="32" style="fill:#ffd80c"/><ellipse cx="85.333" cy="309.333" rx="42.667" ry="74.667" style="fill:#ffd80c"/><ellipse cx="64" cy="298.667" rx="21.333" ry="42.667" style="fill:#ffec6c"/><ellipse cx="277.333" cy="170.667" rx="42.667" ry="64" style="fill:#ffbe00"/><ellipse cx="181.333" cy="234.667" rx="32" ry="64" style="fill:#ffd80c"/><ellipse cx="266.667" cy="160" rx="32" ry="53.333" style="fill:#ffd80c"/><path d="M266.667 128a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.541 3.125z" style="fill:#ffea21"/><path d="M394.667 256a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.541 3.125z" style="fill:#ffbe00"/><path d="M181.333 192a10.667 10.667 0 0 1-7.541-18.208l42.666-42.667a10.666 10.666 0 1 1 15.084 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.542 3.125z" style="fill:#ffea21"/><path d="M330.667 341.333a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.084l-42.667 42.666a10.632 10.632 0 0 1-7.541 3.125z" style="fill:#ffbe00"/><path d="M74.667 256a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667A10.632 10.632 0 0 1 74.667 256z" style="fill:#ffea21"/><path d="M266.667 448a10.667 10.667 0 0 1-7.542-18.208l42.667-42.667a10.666 10.666 0 1 1 15.083 15.083l-42.667 42.667a10.632 10.632 0 0 1-7.541 3.125z" style="fill:#ffbe00"/><ellipse cx="245.333" cy="298.667" rx="32" ry="21.333" style="fill:#ffec6c"/><ellipse cx="181.333" cy="384" rx="32" ry="21.333" style="fill:#ffec6c"/><ellipse cx="330.667" cy="213.333" rx="32" ry="21.333" style="fill:#ffec6c"/><ellipse cx="170.667" cy="224" rx="21.333" ry="32" style="fill:#ffec6c"/><ellipse cx="245.333" cy="149.333" rx="10.667" ry="21.333" style="fill:#ffec6c"/>
+                  </svg></i>
+                  <h4>Grain</h4>
+                  </button>
+                </h2>
+
+                <div id="accordion-grain" class="accordion-collapse collapse ">
+                  <div class="accordion-body">
+
+                    <div class="checkbox-container border-bottom px-3">
+                      <div class="form-check form-check-reverse category-input">
+                        <h5 class="form-check-text">Grain</h5>
+                        <input class="form-check-input category-checkbox border-black" type="checkbox" data-category="grain">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class=" col-lg-9 col-12 right-side">
+          <div class="top-filter mx-4">
+
+            <div class="grid-control display-select">
+              <label class="radio-icon">
+                <input type="radio" class="radio-big" id="radioBig" name="grid-columns" value="25%" checked>
+                <h4><i class="fa-solid fa-border-all"></i></h4>
+              </label>
+              <label class="radio-icon">
+                <input type="radio" class="radio-small" id="radioSmall" name="grid-columns" value="20%">
+                <h4><i class="fa-solid fa-grip"></i></h4>
+              </label>
+            </div>
+
+            <div class="search-container col-sm-8 col-9">
+              <div class="input-group">
+                <span class="input-group-text" id="search-bar"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input id="search-bar-input" type="text" class="form-control" placeholder="Search" aria-label="Search">
+              </div>
+            </div>
+
+            <div class="filter-product">
+              <button class="btn filter" id="filterButton"><h4 class="px-2">Filter<h4 class="fa-solid fa-filter"></h4></h4></button>
+            </div>
+          </div>
+
+          <div class="product-side-container">
+            <div class="product-side row px-sm-4 py-4">
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit melon best">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/watermelon.png" alt="Watermelon"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Watermelon</h5>
+                      <h5 class="card-badge"><i class="fa-solid fa-thumbs-up"></i></h5>
+                      <h6 class="card-text">$5.59</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit citrus discount best recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/orange-stack.png" alt="Orange">
+                  </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Orange</h5>
+                      <h5 class="card-badge"><i class="fa-solid fa-tags"></i> <i class="fa-solid fa-thumbs-up"></i> <i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$3.30<span class="text-decoration-line-through p-1 real-price">$4.99</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit berry">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/raspberry.png" alt="Raspberry"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Raspberry</h5>
+                      <h5 class="card-badge"><i class="fa-solid fa-circle-xmark"></i></h5>
+                      <h6 class="card-text">$5.40</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit citrus discount recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/lemon.png" alt="Lemon"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Lemon</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags"></i> <i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$5.39<span class="text-decoration-line-through p-1 real-price">$6.99</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="veggies root discount">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Veggies/potato.png" alt="potato"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Potato</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags">  <i class="fa-solid fa-thumbs-up"></i></i></h5>
+                      <h6 class="card-text">$2.30<span class="text-decoration-line-through p-1 real-price">$5.99</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="veggies root recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Veggies/radish.png" alt="radish"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Radish</h5>
+                      <h5 class="card-badge"><i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$4.29</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="veggies other-veggies">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Veggies/green-pea.png" alt="green-pea"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Green Pea</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-circle-xmark"></i></h5>
+                      <h6 class="card-text">$1.30</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="veggies cruciferous discount">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Veggies/broccoli.png" alt="broccoli"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Broccoli</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags"></i></h5>
+                      <h6 class="card-text">$3.10<span class="text-decoration-line-through p-1 real-price">$5.99</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="veggies other-veggies">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Veggies/pumpkin.png" alt="Pumpkin"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Pumpkin</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-circle-xmark"></i></h5>
+                      <h6 class="card-text">$3.75</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="veggies other-veggies best">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Veggies/onion.png" alt="Onion"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Onion</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-thumbs-up"></i></h5>
+                      <h6 class="card-text">$2.49</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="herbs spice sweet best recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Herbs/cinnamon.png" alt="Cinnamon"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Cinnamon</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-thumbs-up"></i> <i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$6.39</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="herbs discount">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Herbs/parsley.png" alt="Parsley"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Parsley</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags"></i></h5>
+                      <h6 class="card-text">$2.30<span class="text-decoration-line-through p-1 real-price">$5.99</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit apple-pear discount recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/apple.png" alt="Apple"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Apple</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags"></i> <i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$4.99 <span class="text-decoration-line-through p-1 real-price">$6.59</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="drink water">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Drink/water.png" alt="Water"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Water</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-circle-xmark"></i></h5>
+                      <h6 class="card-text">$1.99</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit tropical">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/banana.png" alt="Banana"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Banana</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-circle-xmark"></i></h5>
+                      <h6 class="card-text">$4.19</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit tropical recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/pineapple.png" alt="Pineapple"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Pineapple</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$8.49</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit apple-pear discount best">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/pear.png" alt="Pear"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Pear</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags"></i> <i class="fa-solid fa-thumbs-up"></i></h5>
+                      <h6 class="card-text">$4.39 <span class="text-decoration-line-through p-1 real-price">$6.99</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="spice spicy best">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Spice/bellpepper.png" alt="Bellpepper"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Bellpepper</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-thumbs-up"></i></h5>
+                      <h6 class="card-text">$6.99</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="spice spicy best recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Spice/chili.png" alt="Chili"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Chili</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-thumbs-up"></i> <i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$4.30</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="spice spicy recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Spice/green-chili.png" alt="Green Chili"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Green Chili</h5>
+                      <h5 class="card-badge"><i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$4.30</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit berry discount best">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/pomegranate.png" alt="Pomegranate"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Pomegranate</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags"></i> <i class="fa-solid fa-thumbs-up"></i></h5>
+                      <h6 class="card-text">$2.59<span class="text-decoration-line-through p-1 real-price">$5.99</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="fruit other-fruit best recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Fruit/cherry.png" alt="Cherry"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Cherry</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-thumbs-up"></i> <i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$7.30</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="spice warm">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Spice/ginger.png" alt="Ginger"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Ginger</h5>
+                      <h5 class="card-badge"><i class="fa-solid fa-circle-xmark"></i></h5>
+                      <h6 class="card-text">$2.49</h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="drink juice discount">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Drink/orange-juice.png" alt="Orange Juice"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Orange Juice</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags"></i></h5>
+                      <h6 class="card-text">$3.99<span class="text-decoration-line-through p-1 real-price">$5.99</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="grain discount recommend">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Grain/oats.png" alt="Oats"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Oats</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags"></i> <i class="fa-solid fa-heart"></i></h5>
+                      <h6 class="card-text">$6.30<span class="text-decoration-line-through p-1 real-price">$8.99</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-6 col-lg-4 col-xl-3 col-md-3 col-sm-6 product product-category" data-categories="grain discount">
+                <div class="card">
+                  <div class="card-img-top"><img id = "product-img" src="./Shop-Css/Product/Grain/wheat.png" alt="Wheat"></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Wheat</h5>
+                      <h5 class="card-badge"> <i class="fa-solid fa-tags"></i></h5>
+                      <h6 class="card-text">$4.49<span class="text-decoration-line-through p-1 real-price">$5.49</span></h6>
+                      <p class="card-text amount">500gr Each</p>
+                    </div>
+                    <div class="card-footer">
+                    <div class="item2 my-2 mx-xl-3" id = "quantity-container">
+                      <button class="btn btn-outline-dark counter-plus"><i class="fa-solid fa-plus"></i></button>
+                      <div class=item-count id=quantity2>1</div>
+                      <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="empty-text">
+                <h2>Item Not Found</h2>
+                <h3>Sorry , But The Item You Search Wasn't Found .
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div id ="bottom-bg" class="bottom-bg">
+          <div id ="bottom-container" class="bottom-container">
+
+              <div class="bottom-text address">
+                <img class="logo" src="./Shop-Css/logo.png" alt="Logo">
+                <h6 id = "bottom-ads">Discover veggies at our organic market - Go green with our organic market's wide selection of farm delights!</h6>
+                  <h4 id = "bottom-title">Address</h4>
+                  <h6 id = "bottom-list"><i class="fa-solid fa-map"></i> 075 Elouise Green , Texas , USA</h6>
+                  <h6 id = "bottom-list"><i class="fa-solid fa-envelope"></i> example@domain.com</h6>
+                  <h6 id = "bottom-list"><i class="fa-solid fa-phone"></i> +01 2345 67890</h6>
+              </div>
+
+              <div class="bottom-text">
+                  <h4 id = "bottom-title">About Us</h4>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">About Us</button></h6>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Contact Information</button></h6>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Testimonials</button></h6>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Support/Help Center</button></h6>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Related Websites</button></h6>
+              </div>
+
+              <div class="bottom-text">
+                  <h4 id = "bottom-title">Misc</h4>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">FAQ</button></h6>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Terms of Service</button></h6>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Privacy Policy</button></h6>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Partners and Affiliates</button></h6>
+                  <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Copyright Information</button></h6>
+              </div>
+
+              <div class="bottom-text newsettler">
+                <h4 id = "bottom-title">Newsettler</h4>
+                <h6 id = "bottom-list">Do You Want To Get Informed About Great Offering From Plantimart ? Put Your Email Here To Get News About It</h6>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Email Here" aria-label="Email Here" >
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="bot">
+      <nav id="navbar" class="navbar bg-body-tertiary px-3">
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-home.html"><i class="fa-solid fa-house"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-shop.html"><i class="fa-solid fa-shop"></i></a>
+          </li>
+          <li class="nav-item">
+            <button class= "btn btn-outline-dark" id="cart-button-bottom">
+                  <i class="fa-solid fa-basket-shopping"></i>
+                  <span id="cart-count-bottom">0</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-about"><i class="fa-solid fa-info"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=".#about-bg"><i class="fa-solid fa-circle-user"></i></a>
+          </li>
+      </nav>
+    </footer>
+
+</body>
+</html>

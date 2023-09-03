@@ -1,0 +1,24 @@
+.about-card{
+  height: 500px;
+}
+
+.gray-700-bg{
+  background: var(--bs-gray-700);
+  color: white;
+}
+
+.right-side , #img-right-side{
+  border-radius: 0% 20% 20% 0%;
+}
+
+.left-side , #img-left-side{
+  border-radius: 20% 0% 0% 20%;
+}
+
+.right-side{
+  background: var(--bs-gray-400)
+}
+
+.left-side{
+  background: var(--bs-gray-600);
+}

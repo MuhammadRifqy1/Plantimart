@@ -1,0 +1,24 @@
+.media{
+  grid-template-columns: 1fr 1fr;
+  column-gap: 230px;
+}
+
+.fa-whatsapp{
+  color: var(--bs-form-valid-color);
+}
+
+.fa-instagram{
+  color: var(--bs-code-color);
+}
+
+.fa-square-envelope{
+  color: var(--bs-red);
+}
+
+.fa-square-facebook{
+  color: var(--bs-blue);
+}
+
+.fa-globe{
+  color: var(--bs-cyan);
+}

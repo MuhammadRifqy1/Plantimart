@@ -1,0 +1,407 @@
+/* styles.css */
+{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.swiper img{
+    max-width: 350px;
+}
+
+.swiper-slide{
+  padding: 30px;
+}
+
+
+/* Top Container Used for Minimized Display So It Can Be Set To None */
+
+#top-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Categories */
+
+header {
+    text-align: center;
+    display: flex;
+    margin: 40px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.option-capt{
+    color: #00000057;
+}
+
+.home-option{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.option-btn {
+    display: flex !important;
+    height: 120px;
+    width: 120px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 24px!important;
+}
+
+
+/* Product Card Template */
+
+.best-seller-container .card , .discount-container .card , .recommend-container .card{
+    text-align: center;
+    max-width: 200px;
+    max-height: 500px;
+    margin-right: 20px;
+}
+
+.product .card-img-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 270px;
+}
+
+.amount{
+    color: var(--bs-gray-600);
+}
+
+p .amount {
+    font-size: 15px;
+}
+
+#product-img{
+  width: 80%;
+}
+
+.product .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card-footer {
+    background: var(--bs-gray-200) !important;
+}
+
+#quantity-container {
+    background: var(--bs-gray-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.more-button-container{
+  width: 100%;
+}
+
+.menu-content {
+  padding: 20px;
+}
+
+/* Discount */
+
+.discount , .recommend{
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+.discount-container , .best-seller-container , .recommend-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+i.fa-solid.fa-tags {
+    margin-right: 10px;
+}
+
+.real-price{
+  color: var(--bs-gray-500);
+}
+
+/* Juice Advertisement Part */
+
+.advert-row{
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.advert-card{
+  border: solid !important;
+  max-width: 400px;
+}
+
+.advert-card .card-body{
+  background: var(--bs-orange);
+}
+
+.advert-row .card-text{
+  font-style: italic;
+}
+
+.advert-img{
+  background: var(--bs-orange);
+}
+
+/* Watermelon Advertisement Part */
+
+.fruit-bg {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
+
+.watermelon{
+    background: #FF3B3F !important;
+}
+
+.orange{
+    background: #f57f03 !important;
+}
+
+.lemon{
+    background: #fffc03 !important;
+}
+
+.fruit-ads{
+    max-width: 350px;
+    height: 200px !important;
+    justify-content: center;
+}
+
+.fruit-ads-img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fruit-ads-img img{
+    height: 150px;
+    width: 180px;
+}
+
+.fruit-bg .card-text{
+    margin: 0;
+    padding-bottom: 6px;
+}
+
+@media (min-width: 1200px) {
+
+/* Categories */
+
+  .home-option{
+      width: 75%;
+      margin: 0 auto;
+  }
+
+}
+
+@media (max-width: 950px) {
+
+  p{
+      font-size: 12px;
+  }
+
+  h5{
+      font-size: 14px;
+  }
+
+  h3{
+      font-size: 16px;
+  }
+
+/* Card Template */
+
+  .best-seller-container .card , .discount-container .card , .recommend-container .card{
+    max-width: 150px;
+    min-height: 250px;
+  }
+
+  .discount-container , .best-seller-container , .recommend-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    grid-row-gap: 20px;
+    justify-items: center;
+    width: 80%;
+    margin: auto;
+  }
+
+  .product .card-img-top {
+    width: 150px;
+    height: 150px;
+  }
+
+  .product .card-body {
+    width: 150px;
+    max-height: 100px;
+  }
+
+  h6.card-text{
+    font-size: 13px;
+  }
+
+  .product .card-footer{
+    width: 150px;
+    height: 90px;
+  }
+
+  .product .counter-plus , .product .counter-minus {
+    font-size: 10px;
+  }
+
+  .product .bottom-card-button {
+    font-size: 12px;
+  }
+
+/* Categories */
+
+    .home-option{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-row-gap: 15px;
+        width: 530px;
+        margin: 0 auto;
+    }
+
+/* Watermelon Advertisement Part */
+
+    .fruit-ads{
+        max-width: 230px;
+        height: 135px !important;
+        justify-content: center;
+    }
+
+    .fruit-ads-img img{
+        height: 130px;
+    }
+
+    .fruit-ads-text{
+        align-self: center;
+    }
+
+    .fruit-ads-button{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 610px) {
+
+  /* Swiper */
+
+  .swiper img{
+      max-width: 180px;
+  }
+
+  .slide-text {
+      font-size: 1.5rem
+  }
+
+/* Categories */
+
+  .home-option {
+      grid-column-gap: 10px;
+      width: 300px;
+  }
+
+  .option-btn {
+    height: 90px;
+    width: 90px;
+    font-size: 20px!important;
+  }
+
+  .option-btn h4{
+    font-size: 17px;
+  }
+
+/* Card Template */
+
+  .best-seller-container .card , .discount-container .card , .recommend-container .card{
+    min-height: 0px;
+    margin: 0px;
+  }
+
+  .discount-container , .best-seller-container , .recommend-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    grid-column-gap: 40px;
+    grid-row-gap: 20px;
+    justify-items: center;
+    width: 80%;
+    margin: auto;
+  }
+
+  .product .card-img-top {
+    width: 100px;
+    height: 100px;
+  }
+
+  .product .card-body {
+    width: 100px;
+    max-height: 100px;
+    padding: 10px;
+  }
+
+  .product .card-footer {
+    width: 100px;
+    height: 80px;
+    padding: 9px;
+  }
+
+  .item-count{
+    font-size: 14px;
+  }
+
+  .product .bottom-card-button {
+    font-size: 10px;
+  }
+
+  .product .counter-plus, .product .counter-minus {
+    font-size: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  h2.card-title {
+    font-size: 15px;
+  }
+
+/* Watermelon Ads  */
+
+  .fruit-bg {
+    flex-wrap: wrap;
+  }
+
+  .fruit-ads{
+    max-width: 0;
+    min-width: 310px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .discount-container , .best-seller-container , .recommend-container{
+    width: 95%;
+    margin: 0;
+  }
+
+}

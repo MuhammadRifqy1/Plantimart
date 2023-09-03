@@ -1,0 +1,92 @@
+.logo{
+    width: 180px;
+}
+
+.navbar {
+    padding-top: 7px !important;
+    background-color: white;
+    color: black;
+    padding-bottom: 5px !important;
+}
+.nav .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* remove the gap so it doesn't close */
+}
+
+.right-nav , .left-nav  ,.nav-button-container{
+    display: flex;
+    align-items: center;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+a.nav-link {
+    font-size: 20px;
+    color: var(--base05);
+}
+
+.scrollspy-container {
+  overflow-y: scroll;
+  max-height: calc(105vh - 100px);
+}
+
+/* Cart Button + Account*/
+
+h3#cart-count{
+  font-size: 20px !important;
+}
+
+#cart-symbol{
+  margin-right: 6px;
+}
+
+i.fa-solid.fa-basket-shopping {
+    padding-right: 3px;
+}
+
+/* Minimized Nav Bar */
+
+.bot{
+  display: none !important;
+  list-style: none;
+}
+
+footer {
+  background-color: white;
+  color: #fff;
+  padding: 6px;
+  text-align: center;
+}
+
+.fa-tags{
+    color: black;
+}
+
+.fa-thumbs-up{
+    color: var(--bs-primary);
+}
+
+.fa-heart{
+    color: red;
+}
+
+.fa-circle-xmark {
+    color: var(--bs-gray-400);
+}
+
+
+@media (max-width: 991px) {
+
+  .bot{
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .top{
+    display: none !important;
+  }
+
+}

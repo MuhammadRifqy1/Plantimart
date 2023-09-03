@@ -1,0 +1,99 @@
+/* Form */
+
+.submit-button {
+    margin: auto;
+    height: 50px;
+    display: block;
+    width: 30%;
+}
+
+#payment-method {
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+#checkout-form {
+    max-width: 100%;
+    margin-left: 0px;
+    text-align: center;
+}
+
+#cart-items-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-row-gap: 15px;
+  grid-column-gap: 10px;
+  justify-items: center;
+}
+
+#total-price-container{
+    text-align: center;
+}
+
+.card{
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#quantity-container {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+@media (max-width: 991px) {
+
+  #cart-items-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-part{
+    flex-direction: column;
+  }
+
+  .form-phase{
+    height: 250px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .card-footer button {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 13px;
+  }
+
+  .card h6{
+    font-size: 0.9rem
+  }
+
+  .card p{
+    font-size: 0.875rem
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  #profile-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  #cart-items-container {
+    grid-template-columns: 1fr;
+  }
+
+}

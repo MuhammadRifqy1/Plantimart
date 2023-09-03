@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./Bootstrap/bootstrap-5.3.1-dist/css/bootstrap.css" >
+  <link rel="stylesheet" href="./Shop-Css/shopping-2nd-form.css">
+  <link rel="stylesheet" href="./Shop-Css/shopping-2nd-form-bg.css">
+  <link rel="stylesheet" href="./Shop-Css/nav.css">
+  <link rel="stylesheet" href="./Shop-Css/bottom-part.css">
+  <link rel="stylesheet" href="./Font Awesome/fontawesome-free-6.4.2-web/css/all.css">
+  <link rel="stylesheet" href="./Bootstrap/Swiper/package/swiper-bundle.css">
+  <script src="./Bootstrap/Swiper/package/swiper-bundle.min.js"></script>
+  <script src="./Bootstrap/bootstrap-5.3.1-dist/js/bootstrap.bundle.js"></script>
+  <script src="./Bootstrap/Swiper/package/swiper-bundle.min.js"></script>
+  <script src="./Bootstrap/Swiper/swiper.js"></script>
+  <script src="./Font Awesome/fontawesome-free-6.4.2-web/js/all.js"></script>
+  <script src="./JS/shopping-2nd-form.js"></script>
+
+</head>
+<body>
+  <nav id="navbar" class="top navbar bg-body-tertiary px-3">
+    <ul class="nav nav-pills left-nav">
+      <img class="logo" src="./Shop-Css/logo.png" alt="Logo">
+        <div class = "nav-button-container">
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-home.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="./shopping-home.html" role="button">Shop</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./shopping-shop.html">Best Deal</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./shopping-shop.html">Green Veggies</a></li>
+              <li><a class="dropdown-item" href="./shopping-shop.html">Various Fruit</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav nav-pills right-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="./shopping-contact.html"><h4 class="fa-solid fa-circle-user"></h4>Account</a>
+        </li>
+    </ul>
+  </nav>
+
+  <div data-bs-spy="scroll" data-bs-target="#navbar" class="scrollspy-container rounded-2" tabindex="0">
+
+    <div class="payment-method-container d-flex">
+
+      <div class="form-phase col-12 col-lg-3 d-flex flex-column align-items-center mt-4">
+
+        <div class="page-path ps-xl-4">
+          <a href="./shopping-home.html" id="pageButton" class="btn px-2 ps-1 py-0 my-2">Home</a>
+          <i class="fa-solid fa-arrow-right"></i>
+          <a  href="./shopping-shop.html" id="pageButton" class="btn px-2 ps-1 py-0 my-2">Shop</a>
+          <i class="fa-solid fa-arrow-right"></i>
+          <a type="button" href="#" id="pageButton" class="btn px-2 ps-1 py-0 my-2">Checkout</a>
+        </div>
+
+        <div class="list-group col-12 px-lg-0 px-5 h-100 ">
+
+          <div class="first-phase list-group-item h-25 d-flex align-items-center justify-content-center border border-black">
+            <i class="fa-solid fa-circle-info pe-2 h3 m-0"></i><h5 class="m-0">Checkout Info <i class="fa-solid fa-check"></i></h5>
+          </div>
+          <div class="second-phase list-group-item h-25 d-flex align-items-center justify-content-center border-end border-black">
+            <i class="fa-solid fa-credit-card pe-2 h5 m-0"></i><h3 class="m-0">Insert Payment</h3>
+          </div>
+          <div class="third-phase list-group-item h-25 d-flex align-items-center justify-content-center border border-top-0 border-black">
+            <i class="fa-solid fa-check-double pe-2 h5 m-0"></i><h5 class="m-0">Confirmation</h5>
+          </div>
+
+      </div>
+
+    </div>
+
+     <div class="payment-method col-12 col-lg-9 d-flex">
+
+   <div class="payment-side col-11 mt-5 ps-5 pb-3">
+
+    <h2>Choose A Payment Method</h2>
+
+    <div class="accordion" id="accordionPanelsStayOpen">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-paypal" aria-expanded="false" aria-controls="accordion-paypal">
+          <h4><i class="fa-brands fa-paypal pe-2"></i>Paypal</h4>
+          </button>
+        </h2>
+
+        <div id="accordion-paypal" class="accordion-collapse collapse ">
+          <div class="accordion-body">
+
+        <h5 class="form-desc">Confirm Your Payment With Paypal . Please Put Your Information Below</h5>
+
+          <form id="paypal-form" class="form d-flex flex-column align-items-center">
+
+            <div class="form-input-container d-flex justify-content-evenly col-12">
+
+              <div class="col-md-9  mb-2col-12 mb-2">
+                <div class="form">
+                  <label class="d-flex" for="paypal-email">Paypal Email</label>
+                  <input type="email" class="form-control" id="paypal-email" placeholder="Paypal Email" required >
+                </div>
+              </div>
+
+            </div>
+
+            <div class="d-flex flex-row submit-button-container py-3">
+              <button type="submit" id="checkoutButton" class="btn btn-outline-dark submit-button">Checkout</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-debit" aria-expanded="false" aria-controls="accordion-debit">
+          <h4><i class="fa-regular fa-credit-card pe-2"></i>Debit Card</h4>
+          </button>
+        </h2>
+
+        <div id="accordion-debit" class="accordion-collapse collapse ">
+          <div class="accordion-body">
+
+            <h5 class="form-desc">Confirm Your Payment With Debit Card . Please Put Your Information Below</h5>
+
+              <form id="debit-form" class="form d-flex flex-column align-items-center">
+
+                <div class="form-input-container d-flex justify-content-evenly col-12">
+
+                  <div class="col-md-3 col-12 mb-2">
+                    <div class="form">
+                      <label class="d-flex" for="debitNumber">Debit Card Number</label>
+                      <input type="number" class="form-control" id="debitNumber" placeholder="123456789" required >
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-12 mb-2">
+                    <div class="form">
+                      <label class="d-flex" for="expire">Expiry Date</label>
+                      <input type="text" class="form-control" id="expire" placeholder="MM/YYYY" pattern="[0-9]{2}/[0-9]{4}" required >
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-12 mb-2">
+                    <div class="form">
+                      <label class="d-flex" for="cvv">CVV</label>
+                      <input type="text" class="form-control" id="cvv" placeholder="123" required >
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="d-flex flex-row submit-button-container py-3">
+                  <button type="submit" id="checkoutButton" class="btn btn-outline-dark submit-button">Checkout</button>
+                </div>
+
+              </form>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-transfer" aria-expanded="false" aria-controls="accordion-transfer">
+          <h4><i class="fa-solid fa-money-bill-transfer pe-2"></i>Bank Transfer</h4>
+          </button>
+        </h2>
+
+          <div id="accordion-transfer" class="accordion-collapse collapse ">
+            <div class="accordion-body">
+
+              <h5 class="form-desc">Confirm Your Payment With Bank Tranfer . Please Put Your Information Below</h5>
+
+                <form id="bank-form" class="form d-flex flex-column align-items-center">
+
+                  <div class="form-input-container d-flex justify-content-evenly col-12">
+
+                    <div class="col-md-5 col-12 mb-2">
+                      <div class="form">
+                        <label class="d-flex" for="name-bank">Name</label>
+                        <input type="text" class="form-control" id="name-bank" placeholder="Name" required >
+                      </div>
+                    </div>
+
+                    <div class="col-md-5 col-12 mb-2">
+                      <div class="form">
+                        <label class="d-flex" for="bank-number">Bank Account Number</label>
+                        <input type="number" class="form-control" id="bank-number" placeholder="1111-1111-1111-1111" required >
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="d-flex flex-row submit-button-container py-3">
+                    <button type="submit" id="checkoutButton" class="btn btn-outline-dark submit-button">Checkout</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-cod" aria-expanded="false" aria-controls="accordion-cod">
+              <h4><i class="fa-solid fa-truck pe-2"></i>Cash On Demand</h4>
+              </button>
+            </h2>
+
+              <div id="accordion-cod" class="accordion-collapse collapse ">
+                <div class="accordion-body">
+
+                  <h5 class="form-desc">Confirm Your Payment With Cash On Demand . Click Checkout If The Address Are Correct </h5>
+
+                    <form id="cod-form" class="form d-flex flex-column align-items-center">
+
+                      <div class="form-input-container d-flex justify-content-evenly col-12">
+
+                        <div class="col-md-9 col-12 mb-2">
+                          <div class="form">
+                            <label class="d-flex" for="cod-address">Address</label>
+                            <input type="text" class="form-control" id="cod-address" placeholder="Address" required >
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="d-flex flex-row submit-button-container py-3">
+                        <button type="submit" id="checkoutButton" class="btn btn-outline-dark submit-button">Checkout</button>
+                      </div>
+
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <div id ="bottom-bg" class="bottom-bg">
+        <div id ="bottom-container" class="bottom-container">
+
+            <div class="bottom-text address">
+              <img class="logo" src="./Shop-Css/logo.png" alt="Logo">
+              <h6 id = "bottom-ads">Discover veggies at our organic market - Go green with our organic market's wide selection of farm delights!</h6>
+                <h4 id = "bottom-title">Address</h4>
+                <h6 id = "bottom-list"><i class="fa-solid fa-map"></i> 075 Elouise Green , Texas , USA</h6>
+                <h6 id = "bottom-list"><i class="fa-solid fa-envelope"></i> example@domain.com</h6>
+                <h6 id = "bottom-list"><i class="fa-solid fa-phone"></i> +01 2345 67890</h6>
+            </div>
+
+            <div class="bottom-text">
+                <h4 id = "bottom-title">About Us</h4>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">About Us</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Contact Information</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Testimonials</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Support/Help Center</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Related Websites</button></h6>
+            </div>
+
+            <div class="bottom-text">
+                <h4 id = "bottom-title">Misc</h4>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">FAQ</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Terms of Service</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Privacy Policy</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Partners and Affiliates</button></h6>
+                <h6 id = "bottom-list"><button type="button" class="btn p-0 bottom-button">Copyright Information</button></h6>
+            </div>
+
+            <div class="bottom-text newsettler">
+              <h4 id = "bottom-title">Newsettler</h4>
+              <h6 id = "bottom-list">Do You Want To Get Informed About Great Offering From Plantimart ? Put Your Email Here To Get News About It</h6>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Email Here" aria-label="Email Here" >
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-paper-plane"></i></button>
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="bot">
+      <nav id="navbar" class="navbar bg-body-tertiary px-3">
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-home.html"><i class="fa-solid fa-house"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-shop.html"><i class="fa-solid fa-shop"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./shopping-about"><i class="fa-solid fa-info"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=".#about-bg"><i class="fa-solid fa-circle-user"></i></a>
+          </li>
+      </nav>
+    </footer>
+
+
+</body>
+</html>
