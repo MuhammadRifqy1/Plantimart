@@ -3,10 +3,10 @@
 }
 
 .navbar {
-    padding-top: 3px !important;
+    padding-top: 7px !important;
     background-color: white;
     color: black;
-    padding-bottom: 3px !important;
+    padding-bottom: 5px !important;
 }
 .nav .dropdown:hover .dropdown-menu {
     display: block;
@@ -81,7 +81,7 @@ footer {
 @media (max-width: 991px) {
 
   .bot{
-    position: sticky;
+    position: fixed;
     display: flex !important;
     flex-direction: column;
   }
