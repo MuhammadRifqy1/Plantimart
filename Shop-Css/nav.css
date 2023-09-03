@@ -81,6 +81,7 @@ footer {
 @media (max-width: 991px) {
 
   .bot{
+    position: sticky;
     display: flex !important;
     flex-direction: column;
   }
