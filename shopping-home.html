@@ -9,13 +9,14 @@
   <link rel="stylesheet" href="./Shop-Css/nav.css">
   <link rel="stylesheet" href="./Shop-Css/bottom-part.css">
   <link rel="stylesheet" href="./Shop-Css/cart-modal.css">
-  <link rel="stylesheet" href="./Font Awesome/fontawesome-free-6.4.2-web/css/all.css">
+  <link rel="stylesheet" href="./Shop-Css/account-set.css">
   <link rel="stylesheet" href="./Bootstrap/Swiper/swiper-bundle.css">
   <script src="./Bootstrap/bootstrap.bundle.js"></script>
   <script src="./Bootstrap/Swiper/swiper-bundle.min.js"></script>
   <script src="./Bootstrap/Swiper/swiper.js"></script>
   <script src="./Font Awesome/all.js"></script>
   <script src="./JS/cart-addon.js"></script>
+  <script src="./JS/account-set.js"></script>
 
 </head>
 
@@ -53,7 +54,7 @@
           </button>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><h4 class="fa-solid fa-circle-user"></h4>Account</a>
+          <a class="nav-link" id="account-nav"><h4 class="fa-solid fa-circle-user"></h4>Account</a>
         </li>
     </ul>
   </nav>
@@ -75,6 +76,46 @@
     </div>
   </div>
 </div>
+
+  <div id="account-modal" class="account-modal">
+      <div class="account-modal-content">
+        <div class="close-container">
+          <span id="account-close" class="close"><i class="fa-regular fa-rectangle-xmark"></i></span>
+        </div>
+        <h1 class="py-3 account-modal-title text-center">Log In</h1>
+        <div id="whole-account" class="whole-account d-flex border border-5 border-black flex-column">
+
+          <form id="account-form" class="form d-flex flex-column align-items-center col-12 ">
+
+            <div class="form-input-container d-flex flex-column justify-content-evenly col-9 py-4">
+
+              <div class="col-12">
+                <div class="form">
+                  <label class="d-flex" for="account-email">Email</label>
+                  <input type="email" class="form-control" id="account-email" placeholder="Account Email" required>
+                </div>
+              </div>
+
+              <div class="col-12 pt-3">
+                <div class="form">
+                  <label class="d-flex" for="account-password">Password</label>
+                  <input type="password" class="form-control" id="account-password" placeholder="Password" required>
+                </div>
+              </div>
+
+            </div>
+
+            <h6 class="gray-comment">*Put Anything Into The Form</h6>
+
+            <div class="modal-footer col-12">
+              <button type="submit" id="logInButton" class="btn btn-light log-in-button my-3">Log In</button>
+            </div>
+
+          </form>
+
+      </div>
+    </div>
+ </div>
 
 
       <!-- Slider Part -->
@@ -574,7 +615,7 @@
             <a class="nav-link" href="./shopping-about"><i class="fa-solid fa-info"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=".#about-bg"><i class="fa-solid fa-circle-user"></i></a>
+            <a class="nav-link" id="account-nav-bottom"><i class="fa-solid fa-circle-user"></i></a>
           </li>
       </nav>
     </footer>

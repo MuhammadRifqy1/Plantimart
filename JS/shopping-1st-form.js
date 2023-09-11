@@ -3,6 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
 let cartItems = [];
 
   const form = document.getElementById('checkout-form');
+  const nameDefault = document.getElementById("name")
+  const emailDefault = document.getElementById("address") ;
+
+  const accountUsernameData = localStorage.getItem('accountUsernameData');
+  if (accountUsernameData) {
+    const accountUsernameDataObject = JSON.parse(accountUsernameData);
+    const accountUsernameValue = accountUsernameDataObject.accountLocalUsername;
+    nameDefault.value = accountUsernameValue;
+  }
+
+  const accountAddressData = localStorage.getItem('accountAddressData');
+  if (accountAddressData) {
+    const accountAddressDataObject = JSON.parse(accountAddressData);
+    const accountAddressValue = accountAddressDataObject.accountLocalAddress;
+    emailDefault.value = accountAddressValue;
+  }
 
 loadCartItemsFromLocalStorage();
 updateCartTotal();

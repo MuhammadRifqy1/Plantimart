@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const formData = localStorage.getItem('formData');
     if (formData) {
       const formDataObject = JSON.parse(formData);
-      const addressValue = formDataObject.address; // Access the email property
+      const addressValue = formDataObject.address;
       codAddress.value = addressValue;
     }
     const debitData = localStorage.getItem('debitData');

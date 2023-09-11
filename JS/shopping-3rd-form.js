@@ -14,6 +14,7 @@ let cartItems = [];
   updateCartTotal();
 
   function loadWholeItemsFromLocalStorage() {
+
     const storedCartItems = localStorage.getItem('cartItems');
     if (storedCartItems) {
       cartItems = JSON.parse(storedCartItems);
@@ -23,6 +24,7 @@ let cartItems = [];
     const savedFormData = localStorage.getItem('formData');
     if (savedFormData) {
       const formDataObject = JSON.parse(savedFormData);
+      console.log(formDataObject);
       const nameValue = formDataObject.name;
       const emailValue = formDataObject.email;
       const addressValue = formDataObject.address;
@@ -118,11 +120,6 @@ let cartItems = [];
       paymentData.appendChild(paymentMethod);
     }
 
-    console.log(storedCartItems);
-    console.log(savedFormData);
-    console.log(debitData);
-    console.log(bankData);
-    console.log(paypalPaymentData);
   }
 
 
@@ -191,23 +188,97 @@ let cartItems = [];
   checkoutButton.addEventListener('click', checkout);
 
   function checkout() {
+    const savedFormData = localStorage.getItem('formData');
+    const storedCartItems = localStorage.getItem('cartItems');
     const debitData = localStorage.getItem('debitData');
+
     if(debitData){
+      const stringSavedFormData = JSON.stringify(savedFormData);
+      const stringStoredCartItems = JSON.stringify(storedCartItems);
+      const stringDebitData = JSON.stringify(debitData);
+
+      var wholeInfoCheckout = {
+        savedFormData: stringSavedFormData,
+        storedCartItems: stringStoredCartItems,
+        debitData: stringDebitData
+      };
+
+      console.log(wholeInfoCheckout);
+
+      var wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout')) || [];
+
+      wholeArrayCheckout.push(wholeInfoCheckout);
+
+      localStorage.setItem('wholeArrayCheckout', JSON.stringify(wholeArrayCheckout));
       localStorage.removeItem('debitData');
     }
 
     const paypalPaymentData = localStorage.getItem('paypalPaymentData');
-    if(paypalPaymentData){
+    if (paypalPaymentData) {
+      const stringSavedFormData = JSON.stringify(savedFormData);
+      const stringStoredCartItems = JSON.stringify(storedCartItems);
+      const stringPaypalPaymentData = JSON.stringify(paypalPaymentData);
+
+      var wholeInfoCheckout = {
+        savedFormData: stringSavedFormData,
+        storedCartItems: stringStoredCartItems,
+        paypalPaymentData: stringPaypalPaymentData
+      };
+
+      console.log(wholeInfoCheckout);
+
+      var wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout')) || [];
+
+      wholeArrayCheckout.push(wholeInfoCheckout);
+
+      localStorage.setItem('wholeArrayCheckout', JSON.stringify(wholeArrayCheckout));
       localStorage.removeItem('paypalPaymentData');
     }
 
+
     const bankData = localStorage.getItem('bankData');
     if(bankData){
+      const stringSavedFormData = JSON.stringify(savedFormData);
+      const stringStoredCartItems = JSON.stringify(storedCartItems);
+      const stringBankData = JSON.stringify(bankData);
+
+      const wholeInfoCheckout = {
+        savedFormData: stringSavedFormData,
+        storedCartItems: stringStoredCartItems,
+        bankData:stringBankData
+      };
+
+      console.log(wholeInfoCheckout);
+
+      var wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout')) || [];
+
+      wholeArrayCheckout.push(wholeInfoCheckout);
+
+      localStorage.setItem('wholeArrayCheckout', JSON.stringify(wholeArrayCheckout));
       localStorage.removeItem('bankData');
     }
-      localStorage.removeItem("cartItems")
-      localStorage.removeItem("formData")
-      window.location.href = 'shopping-home.html';
+
+    else{
+      const stringSavedFormData = JSON.stringify(savedFormData);
+      const stringStoredCartItems = JSON.stringify(storedCartItems);
+
+      const wholeInfoCheckout = {
+        savedFormData: stringSavedFormData,
+        storedCartItems: stringStoredCartItems,
+      };
+
+      console.log(wholeInfoCheckout);
+
+      var wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout')) || [];
+
+      wholeArrayCheckout.push(wholeInfoCheckout);
+
+      localStorage.setItem('wholeArrayCheckout', JSON.stringify(wholeArrayCheckout));
+    }
+
+    localStorage.removeItem("cartItems")
+    localStorage.removeItem("formData")
+    window.location.href = 'shopping-home.html';
   }
 
 });

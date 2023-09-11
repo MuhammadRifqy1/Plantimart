@@ -40,6 +40,10 @@
   font-weight: bold !important;
 }
 
+.newsettler .input-group .btn {
+    z-index: 0;
+}
+
 @media (max-width: 768px) {
 
   #bottom-container {
