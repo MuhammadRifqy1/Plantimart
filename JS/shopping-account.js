@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   function loadCheckoutInfoFromLocalStorage() {
-    const wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout'))
+    const wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout') || [])
     const checkoutList = document.getElementById('checkoutListOngoing');
     checkoutList.innerHTML = "";
 
