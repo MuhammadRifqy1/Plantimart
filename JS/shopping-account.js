@@ -308,12 +308,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   function loadCheckoutInfoFromLocalStorage() {
-    const wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout')) || [];
+    const wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout'))
     const checkoutList = document.getElementById('checkoutListOngoing');
     checkoutList.innerHTML = "";
 
-    // Iterate through each object in the array
-    for (let i = 0; i < wholeArrayCheckout.length; i++) {
+    if (wholeArrayCheckout.length > 0) {
+
+      for (let i = 0; i < wholeArrayCheckout.length; i++) {
       const checkoutData = wholeArrayCheckout[i];
       console.log(checkoutData);
 
@@ -412,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       removeButton.addEventListener("click", function() {
         removeTransaction(i);
-        loadHistoryInfoFromLocalStorage(); // Reload the transaction history list
+        loadCheckoutInfoFromLocalStorage();
       });
 
 
@@ -430,15 +431,36 @@ document.addEventListener('DOMContentLoaded', function() {
       cartItem.appendChild(buttonContainer)
       checkoutList.appendChild(cartItem)
 
-    };
+      };
+    }
+
+    else if(wholeArrayCheckout.length === 0 ) {
+      const emptyTransaction  = document.createElement("h5");
+      emptyTransaction.classList.add('mt-3' , "text-center" , "px-2");
+      emptyTransaction.textContent = "You Doesn't Have Any Transaction Right Now" ;
+
+      const buttonShop = document.createElement("button");
+      buttonShop.classList.add('btn', 'btn-outline-dark', 'col-7' , "col-md-5" , 'mt-3');
+      buttonShop.textContent = "Go To Shop"
+
+      buttonShop.addEventListener("click", function() {
+        window.location.href = 'shopping-shop.html';
+      });
+
+      checkoutList.appendChild(emptyTransaction)
+      checkoutList.appendChild(buttonShop)
+    }
+
   };
 
   function loadHistoryInfoFromLocalStorage() {
     const transactionData = JSON.parse(localStorage.getItem('transactionKey')) || [];
+    console.log(transactionData);
     const checkoutList = document.getElementById('checkoutListHistory');
     checkoutList.innerHTML = "";
 
-    // Iterate through each object in the array
+    if (transactionData.length > 0) {
+
     for (let i = 0; i < transactionData.length; i++) {
       const checkoutData = transactionData[i];
       console.log(checkoutData);
@@ -522,7 +544,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       removeButton.addEventListener("click", function() {
         removeTransactionHistory(i);
-        checkoutList.removeChild(cartItem);
+        loadHistoryInfoFromLocalStorage();
       });
 
       const buttonContainer = document.createElement("div");
@@ -538,7 +560,25 @@ document.addEventListener('DOMContentLoaded', function() {
       cartItem.appendChild(buttonContainer)
       checkoutList.appendChild(cartItem)
 
-    };
+    }
+  }
+
+    else if(transactionData.length === 0 ) {
+      const emptyTransaction  = document.createElement("h5");
+      emptyTransaction.classList.add('mt-3' , "text-center" , "px-2");
+      emptyTransaction.textContent = "Your History Was Empty" ;
+
+      const buttonShop = document.createElement("button");
+      buttonShop.classList.add('btn', 'btn-outline-dark', 'col-7' , "col-md-5" , 'mt-3');
+      buttonShop.textContent = "Go To Shop"
+
+      buttonShop.addEventListener("click", function() {
+        window.location.href = 'shopping-shop.html';
+      });
+
+      checkoutList.appendChild(emptyTransaction)
+      checkoutList.appendChild(buttonShop)
+      }
   };
 
 
