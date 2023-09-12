@@ -1,0 +1,56 @@
+.remove-button {
+  padding-left: 4px;
+  padding-right: 4px;
+};
+
+.transaction {
+    height: 125px;
+}
+
+@media (max-width: 767px){
+
+  .cart-info{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .cart-form{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .transaction , .history {
+    height: 225px;
+  }
+
+}
+
+@media (max-width: 575px){
+
+  .cart-info{
+    grid-template-columns: 1fr 1fr ;
+  }
+
+  .cart-form{
+    grid-template-columns: 1fr;
+  }
+
+  .cs-choice h5 {
+    font-size: 15px;
+  }
+
+  .send-comment h3{
+    font-size: large;
+  }
+
+  .account-info{
+    grid-template-columns: 1fr;
+  }
+
+  .transaction {
+    height: 360px;
+  }
+
+  .history {
+    height: 350px;
+  }
+
+}
