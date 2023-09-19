@@ -105,7 +105,7 @@ p .amount {
 }
 
 #product-img{
-    width: 80%;
+   max-width: 70%;
 }
 
 .product .card-body {

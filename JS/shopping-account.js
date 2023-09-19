@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   function loadCheckoutInfoFromLocalStorage() {
-    const wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout')) || [] ; 
+    const wholeArrayCheckout = JSON.parse(localStorage.getItem('wholeArrayCheckout')) || [] ;
     const checkoutList = document.getElementById('checkoutListOngoing');
     checkoutList.innerHTML = "";
 
@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
       cartItem.appendChild(transactionStatus)
 
       const boxStack = document.createElement("div");
-      boxStack.classList.add('fa-solid' , 'fa-boxes-stacked', 'h-50');
+      boxStack.classList.add('fa-solid' , 'fa-boxes-stacked', 'h-50' , "fa-3x");
 
       const boxes = document.createElement("div");
       boxes.style.height  = '100px'
@@ -479,7 +479,7 @@ document.addEventListener('DOMContentLoaded', function() {
       cartItem.appendChild(transactionStatus)
 
       const boxStack = document.createElement("div");
-      boxStack.classList.add('fa-solid' , 'fa-boxes-stacked', 'h-50');
+      boxStack.classList.add('fa-solid' , 'fa-boxes-stacked', 'h-50' , "fa-3x");
 
       const boxes = document.createElement("div");
       boxes.style.height  = '100px'

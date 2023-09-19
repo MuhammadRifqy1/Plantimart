@@ -126,10 +126,6 @@ p .amount {
     align-items: center;
 }
 
-i.fa-solid.fa-tags {
-    margin-right: 10px;
-}
-
 .real-price{
   color: var(--bs-gray-500);
 }
