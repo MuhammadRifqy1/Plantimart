@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./Bootstrap/Swiper/swiper-bundle.css">
   <script src="./Bootstrap/Swiper/swiper-bundle.min.js"></script>
   <script src="./Bootstrap/Swiper/swiper.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/71baea9eb0.js" crossorigin="anonymous"></script>
   <script src="./JS/account-set.js"></script>
   <script src="./JS/cart-addon.js"></script>
@@ -31,7 +32,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="./shopping-home.html" role="button">Shop</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./shopping-shop.html">Best Deal</a></li>
+            <li><a class="dropdown-item" href="./shopping-shop.html">Good Deal</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="./shopping-shop.html">Green Veggies</a></li>
             <li><a class="dropdown-item" href="./shopping-shop.html">Various Fruit</a></li>
@@ -368,6 +369,18 @@
     </div>
   </div>
 
+  <div class="toast-container position-fixed top-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Plantimart</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Item Was Added To Cart !
+      </div>
+    </div>
+  </div>
+
     <div data-bs-spy="scroll" data-bs-target="#navbar" class="scrollspy-container rounded-2" tabindex="0">
 
       <div id="whole-product" class="whole-product mt-4">
@@ -699,7 +712,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -720,7 +733,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -740,7 +753,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -760,7 +773,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -780,7 +793,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -800,7 +813,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -820,7 +833,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -840,7 +853,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -860,7 +873,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -880,7 +893,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -900,7 +913,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -920,7 +933,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -940,7 +953,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -960,7 +973,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -980,7 +993,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1000,7 +1013,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1020,7 +1033,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1040,7 +1053,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1060,7 +1073,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1080,7 +1093,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1100,7 +1113,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1120,7 +1133,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1140,7 +1153,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1160,7 +1173,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1180,7 +1193,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>
@@ -1200,7 +1213,7 @@
                       <div class=item-count id=quantity2>1</div>
                       <button class="btn btn-outline-dark counter-minus"><i class="fa-solid fa-minus"></i></button>
                     </div>
-                    <button type="button" class="btn btn-outline-dark bottom-card-button" >Add to Cart</button>
+                    <button type="button" class="btn btn-outline-dark bottom-card-button added-notif" >Add to Cart</button>
                     </div>
                   </div>
               </div>

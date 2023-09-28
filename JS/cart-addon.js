@@ -1,5 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+const toastTrigger = document.querySelectorAll('.added-notif');
+const toastLiveExample = document.getElementById('liveToast')
+
+toastTrigger.forEach(button => {
+  button.addEventListener('click', toastPopup);
+});
+
+function toastPopup() {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+  toastBootstrap.show()
+}
+
 const cartButton = document.getElementById("cart-button");
 const cartCount = document.getElementById('cart-count');
 const cartCountBottom = document.getElementById('cart-count-bottom');
@@ -76,7 +88,7 @@ function renderCartItems() {
     cartItemsContainer.innerHTML = '';
     cartItems.forEach((item, index) => {
       const cartItem = document.createElement('div');
-      cartItem.classList.add('card' , "col-sm-9", "col-11" ,"mx-2" , "my-3");
+      cartItem.classList.add('card' , "col-md-9", "col-11" ,"mx-2" , "my-3");
 
       const image = document.createElement('img');
       image.src = item.imageSrc;

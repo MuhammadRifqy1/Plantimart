@@ -74,21 +74,33 @@
   text-align: center;
 }
 
+.toast-container{
+  left: 60%
+}
+
 @media (min-width: 1200px) {
 
   #cart-items-container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
+
+  .toast-container{
+    left: 70%
+  }
 }
 
-@media (max-width: 991px) and (min-width: 768px) {
+@media (max-width: 991px){
 
   #cart-items-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  .toast-container{
+    left: 0
+  }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 575px) {
 
   #cart-items-container {
     grid-template-columns: 1fr 1fr;
